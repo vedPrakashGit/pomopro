@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon-64x64.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard-responsive.css">
+    <title>Pomopro - Single Task</title>
+</head>
+<body>
+    <nav class="navbar dashboard-navbar">
+        <div class="d-flex align-items-center ml-0 ml-md-3">
+            <span id="sidebarToggler">
+                <img src="images/dashboard/hamburger.svg" class="mr-3 cursor-pointer" alt="Hamburger" width="35" height="35">
+            </span>
+            <a class="navbar-brand" href="dashboard.html">
+                <img src="images/logo-1.svg" width="151" height="38" class="img-fluid d-none d-md-block" alt="Pomopro Logo">
+                <img src="images/logo-icon-1.svg" width="35" height="35" class="img-fluid d-block d-md-none" alt="Pomopro Logo">
+            </a>
+        </div>
+          <ul class="nav ml-auto my-2 my-lg-0 dashboard-top-ul align-items-center">
+            <li class="nav-item active">
+              <span class="nav-link top-time-text"><i class="fas fa-clock mr-2"></i> 00:00:00</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link icon-link" href="#"><i class="fas fa-bell"></i></a>
+            </li>
+            <li class="nav-item dropdown user-dropdown">
+              <a class="nav-link dropdown-toggle no-after mr-0 mr-md-3" href="#" id="topUserDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                <div class="top-user-img-div">
+                    <img src="images/dashboard/avatars/avatar-1.png" class="img-fluid top-user-img" alt="User Image">
+                </div>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="topUserDropdown">
+                <span class="dropdown-item-text medium-fw nowrap">Hi, John Pascal</span>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i> Setting</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt mr-2"></i> Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+    </nav>
+
+    <section class="dashboard-body">
+        <aside class="dashboard-sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <img src="images/dashboard/dashboard.svg" class="aside-icon" width="25" height="25" alt="Dashboard Icon"> 
+                    <span class="text-uppercase dashboard-nav-text">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="team.html" class="nav-link">
+                    <img src="images/dashboard/team.svg" class="aside-icon" width="25" height="25" alt="Team Icon"> 
+                    <span class="text-uppercase dashboard-nav-text">Team</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="projects.html" class="nav-link">
+                    <img src="images/dashboard/projects.svg" class="aside-icon" width="25" height="25" alt="Project Icon"> 
+                    <span class="text-uppercase dashboard-nav-text">Projects</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link">
+                    <img src="images/dashboard/clients.svg" class="aside-icon" width="25" height="25" alt="Client Icon"> 
+                    <span class="text-uppercase dashboard-nav-text">Client</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link">
+                    <img src="images/dashboard/dashboard.svg" class="aside-icon" width="25" height="25" alt="Setting Icon"> 
+                    <span class="text-uppercase dashboard-nav-text">Setting</span>
+                </a>
+            </li>
+        </ul>
+        </aside>
+        <div class="dashboard-inner-wrapper">
+        <div class="dashboard-inner">
+            <div class="single-project-name-div">
+                <div>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fas fa-chevron-circle-left cursor-pointer grey-clr-1 mr-2" onclick="goBack();"></i>
+                        <label class="mr-2 mb-0 fs-14 text-clr">Projects</label>
+                        <i class="fas fa-chevron-right fs-12 text-clr"></i>
+                        <a href="single-project.html" class="ml-2 fs-14 blue-clr">Yoonik</a>
+                    </div>
+                    <h3 class="mb-2 single-project-name-heading">Development of Blog Pages</h3>
+                    <div class="task-detailing-box d-flex align-items-center">
+                        <label class="mb-0 fs-14">Task 10</label>
+                        <i class="fas fa-circle small-dot"></i>
+                        <label class="mb-0 fs-14 blue-clr cursor-pointer" id="addSubTaskBtn"><i class="fas fa-tasks mr-2"></i>Add Sub-Task</label>
+                        <i class="fas fa-circle small-dot"></i>
+                        <a href="javascript:void()" class="fs-14 blue-clr"><i class="fas fa-link mr-2"></i>Task Link</a>
+                        <i class="fas fa-circle small-dot"></i>
+                        <div class="btn-group dropdown custom-select-group">
+                            <label class="mb-0 cursor-pointer task-priority-color priority-bg-3 medium dropdown-toggle no-after" data-toggle="dropdown"></label>
+                            <!-- <div class="dropdown-menu stop-propagation shadow min-width-250">
+                                <p class="text-clr fs-18 pt-3 pl-4 mb-3">Priority Types</p>   
+                                <ul class="nav flex-column my-2 priority-type-ul">
+                                    <li>
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-1">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span class="text-clr">Very Low</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-2">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span class="text-clr">Low</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-3">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span>Medium</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-4">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span>High</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-5">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span>Urgent</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                
+
+                <button id="addMemberBtn" class="btn blue-dark-btn" data-toggle="modal" data-target="#addTaskModal"><img src="images/dashboard/icons/plus-square.svg" class="img-fluid" alt="Plus Icon" width="20" height="20"> Add Task</button>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="task-desc-div p-0">
+                        <label class="modal-task-label grey-clr-1 fs-14">Description</label>
+                        <p class="task-desc-para" style="background-color: #E9ECEF;">This task includes Main Blog Page, Single Blog Page, Search Blog, Blog Categories, Email Subscription for Blog, Recent Blogs </p>
+                    </div>
+
+                    <div class="sub-tasks-div d-none">
+                        <div class="task-add-div d-none">
+                            <div class="group form-group mr-3"> 
+                                <input type="text" class="form-control" id="taskName" name="taskName" required> 
+                                <span class="highlight"></span>
+                                <span class="bar"></span> 
+                                <label for="taskName">What is to be done?</label>
+                            </div>
+                            <button class="btn task-add-plus-btn mr-2"><i class="fas fa-plus"></i></button>
+                            <button class="btn task-add-cancel-btn"><img src="images/cross-icon-red.svg" class="img-fluid" alt="Cross Icon"></button>
+                        </div>
+    
+                        <label class="modal-task-label grey-clr-1 fs-14">Sub-tasks</label>
+                        <ul class="sub-tasks-ul">
+                            <li>
+                                <p class="">Addding new features in the blog</p>
+                            </li>
+                            <li>
+                                <p class="">Providing social media links to the single blog</p>
+                            </li>
+                            <li>
+                                <p class="">Adding email newsletter field for the users</p>
+                            </li>
+                        </ul>  
+                    </div>
+
+                    <div class="py-2 px-4">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="common-drop-area text-center" id="dropArea1">
+                                        <input type="file" id="fileInput1" multiple hidden>
+                                        <p class="drag-para">Drag your files to attach or <label class="mb-0">click to browse</label></p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <table id="imgTable1" width="100%" class="upload-img-table">                        
+                                        <tbody>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>                 
+                        </form>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h6 class="text-clr mb-0"><i class="fas fa-paperclip mr-2"></i> Attachments (1)</h6>
+                            <button class="btn small-grey-btn" data-toggle="collapse" href="#collapse1" role="button" arial-label="Hide and Show Content"></button>
+                        </div>
+                        <div class="table-responsive collapse show" id="collapse1">
+                            <table class="table text-center attachment-table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-left w-100">Name</th>
+                                        <th>Size</th>
+                                        <th>Date</th>
+                                        <th></th>
+                                    </tr>                                   
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-left">15412541254.png</td>
+                                        <td>250 KB</td>
+                                        <td>Jul 20, 2021 11:15AM</td>
+                                        <td><button class="btn file-download-btn"><i class="fas fa-download"></i></button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="task-activities mt-3 mb-5">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h6 class="text-clr mb-0"><i class="fas fa-align-left"></i> Activity</h6>
+                            <button class="btn small-grey-btn" data-toggle="collapse" href="#collapse2" role="button" arial-label="Hide and Show Content"></button>
+                        </div>
+                        <div>
+                            <div class="mt-3">
+                                <div class="media">
+                                    <div class="mr-3">
+                                        <div class="member-img-div">
+                                            <!-- <img src="images/dashboard/avatars/avatar-2.png" class="member-img img-fluid" alt="Image"> -->
+                                            <span class="member-name-initials">VP</span>
+                                        </div>                                            
+                                    </div>  
+                                    <div class="media-body">
+                                        <textarea name="" id="commentInput" cols="30" rows="1" class="comment-textarea w-100"></textarea>
+
+                                        <div class="comment-btns d-none">
+                                            <button class="btn comment-save-btn">Save</button>
+                                            <button class="btn comment-cancel-btn" id="cancelComment">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse show mt-4" id="collapse2">
+                            <div class="media mb-4">
+                                <div class="mr-3">
+                                    <div class="member-img-div">
+                                        <img src="images/dashboard/avatars/avatar-2.png" class="member-img img-fluid" alt="Image">
+                                        <!-- <span class="member-name-initials">IS</span> -->
+                                    </div>                                            
+                                </div>  
+                                <div class="media-body">
+                                    <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Ved Prakash</a> commented <time class="fs-14 grey-clr-1 ml-2"><i class="fas fa-clock"></i> Jul 20, 2021 12:16 PM</time></p>
+                                    <div class="commented-text-div">
+                                        <p class="mb-2">I have updated the mentined section as per the feedback from client. The link is below:-</p>
+                                        <a href="javascript:void(0)" target="_blank" class="logo-clr">http://233.151.32.1521/yoonik/dashboard.html</a>
+                                    </div>
+                                    <div class="comment-update-div">
+                                        <div class="d-flex align-items-center flex-wrap">
+                                            <a href="javascript:void(0)" class="comment-update-text fs-14">Edit</a>
+                                            <span class="dot-circle"></span>
+                                            <a href="javascript:void(0)" class="comment-update-text fs-14">Reply</a>
+                                            <span class="dot-circle"></span>
+                                            <a href="javascript:void(0)" class="comment-update-text fs-14">Delete</a>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="media mb-4">
+                                <div class="mr-3">
+                                    <div class="member-img-div">
+                                        <img src="images/dashboard/avatars/avatar-2.png" class="member-img img-fluid" alt="Image">
+                                        <!-- <span class="member-name-initials">IS</span> -->
+                                    </div>                                            
+                                </div>  
+                                <div class="media-body">
+                                    <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Ved Prakash</a> attached <a href="javascript:void(0)" class="logo-clr">15412541254.png</a> to this task</p>
+                                    <div class="d-flex align-items-center flex-wrap">
+                                    <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> Jul 20, 2021 11:15 AM</time>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="media mb-4">
+                                <div class="mr-3">
+                                    <div class="member-img-div">
+                                        <img src="images/dashboard/avatars/avatar-2.png" class="member-img img-fluid" alt="Image">
+                                        <!-- <span class="member-name-initials">IS</span> -->
+                                    </div>                                            
+                                </div>  
+                                <div class="media-body">
+                                    <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Ved Prakash</a> changed the status to <span class="in-progress-text">In-Progress</span> from <span class="to-do-text">To Do</span>
+                                    <div class="d-flex align-items-center flex-wrap">
+                                    <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> 1 hour ago</time>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="media mb-4">
+                                <div class="mr-3">
+                                    <div class="member-img-div">
+                                        <img src="images/dashboard/avatars/avatar-4.png" class="member-img img-fluid" alt="Image">
+                                        <!-- <span class="member-name-initials">IS</span> -->
+                                    </div>                                            
+                                </div>  
+                                <div class="media-body">
+                                    <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Yogesh Sharma</a> set the task priority to <span class="priority-clr-3">Medium</span></p>
+                                    <div class="d-flex align-items-center flex-wrap">
+                                    <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> Jul 19, 2021 10:12 AM</time>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="media mb-4">
+                                <div class="mr-3">
+                                    <div class="member-img-div">
+                                        <img src="images/dashboard/avatars/avatar-4.png" class="member-img img-fluid" alt="Image">
+                                        <!-- <span class="member-name-initials">IS</span> -->
+                                    </div>                                            
+                                </div>  
+                                <div class="media-body">
+                                    <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Yogesh Sharma</a> updated the description</p>
+                                    <div class="d-flex align-items-center flex-wrap">
+                                    <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> Jul 19, 2021 10:11 AM</time>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="media mb-4">
+                                <div class="mr-3">
+                                    <div class="member-img-div">
+                                        <img src="images/dashboard/avatars/avatar-4.png" class="member-img img-fluid" alt="Image">
+                                        <!-- <span class="member-name-initials">IS</span> -->
+                                    </div>                                            
+                                </div>  
+                                <div class="media-body">
+                                    <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Yogesh Sharma</a> created the task</p>
+                                    <div class="d-flex align-items-center flex-wrap">
+                                    <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> Jul 19, 2021 10:05 AM</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="collapse-wrapper mb-4">
+                        <div class="side-header d-flex align-items-center justify-content-between">
+                            <p class="mb-0"><i class="fas fa-user-friends mr-2"></i> Team Members</p>
+                            <a class="btn collapse-btn" data-toggle="collapse" href="#teamCollapse" role="button" aria-expanded="false" aria-controls="teamCollapse"><i class="fas fa-chevron-up"></i></a>
+                        </div>
+
+                        <div class="collapse show" id="teamCollapse">
+                            <div class="card card-body collapse-div">
+                                <div class="task-team-div">
+                                    <ul class="nav">
+                                        <li class="nav-item mr-2">
+                                            <div class="member-img-div">
+                                                <img src="images/dashboard/avatars/avatar-3.png" class="member-img img-fluid" alt="Image">
+                                            </div>
+                                        </li>
+                                        <li class="nav-item mr-2">
+                                            <div>
+                                            </div>
+                                            <div class="dropdown custom-select-group">
+                                                <label class="dropdown-toggle task-add-label no-after cursor-pointer" data-toggle="dropdown"><i class="fas fa-plus"></i></label>
+                                                <div class="dropdown-menu stop-propagation min-width-250">
+                                                    <a href="javascript:void(0)" class="dropdown-item">Select All</a>
+                                                    <a href="javascript:void(0)" class="dropdown-item"><i class="fas fa-user-plus square-box mr-2"></i> Add new member</a>
+                                                    <div class="dropdown-divider"></div>
+            
+                                                    <div class="dropdown-item cursor-pointer mb-0">
+                                                        <input type="checkbox" class="mr-2 styled-checkbox" id="check100">
+                                                        <label for="check100"><span class="name-span-box styled-label">VP</span> Ved Prakash</label>
+                                                    </div>
+            
+                                                    <div  class="dropdown-item cursor-pointer mb-0 styled-label" href="#">
+                                                        <input type="checkbox" class="mr-2 styled-checkbox" id="check102"> 
+                                                        <label for="check102">
+                                                            <span class="name-span-box">YS</span> Yogesh Sharma
+                                                        </label>
+                                                    </div>
+                                                    <div  class="dropdown-item cursor-pointer mb-0 styled-label" href="#">
+                                                        <input type="checkbox" class="mr-2 styled-checkbox" id="check103"> 
+                                                        <label for="check103">
+                                                            <span class="name-span-box">PK</span> Pravin Kumar
+                                                        </label>
+                                                    </div>
+                                                    <div class="dropdown-item cursor-pointer mb-0 styled-label" href="#">
+                                                        <input type="checkbox" class="mr-2 styled-checkbox" id="check104">
+                                                        <label for="check104">
+                                                            <span class="name-span-box">ST</span> Sima Tiwari
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="collapse-wrapper mb-4">
+                        <div class="side-header d-flex align-items-center justify-content-between">
+                            <p class="mb-0"><i class="fas fa-layer-group mr-2"></i> Priority</p>
+                            <a class="btn collapse-btn" data-toggle="collapse" href="#priorityCollapse" role="button" aria-expanded="false" aria-controls="priorityCollapse"><i class="fas fa-chevron-up"></i></a>
+                        </div>
+
+                        <div class="collapse show" id="priorityCollapse">
+                            <div class="card card-body collapse-div">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <label class="mb-0 cursor-pointer task-priority-color priority-bg-3 medium mr-2"></label>
+                                        <span>Medium</span>
+                                    </div>
+
+                                    <div class="dropdown dropleft">
+                                        <button class="mb-0 btn priority-grey-btn dropdown-toggle no-before" data-toggle="dropdown">Update</button>
+                                        <div class="dropdown-menu stop-propagation shadow min-width-200">
+                                            <p class="text-clr fs-18 pt-3 pl-4 mb-3">Priority Types</p>   
+                                            <ul class="nav flex-column my-2 priority-type-ul">
+                                                <li>
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-1">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span class="text-clr">Very Low</span>
+                                                    </label>
+            
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-2">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span class="text-clr">Low</span>
+                                                    </label>
+            
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-3">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span>Medium</span>
+                                                    </label>
+            
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-4">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span>High</span>
+                                                    </label>
+            
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-5">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span>Urgent</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="collapse-wrapper mb-4">
+                        <div class="side-header d-flex align-items-center justify-content-between">
+                            <p class="mb-0"><i class="fas fa-exchange-alt mr-2"></i> Status</p>
+                            <a class="btn collapse-btn" data-toggle="collapse" href="#statusCollapse" role="button" aria-expanded="false" aria-controls="statusCollapse"><i class="fas fa-chevron-up"></i></a>
+                        </div>
+
+                        <div class="collapse show" id="statusCollapse">
+                            <div class="card card-body collapse-div">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="in-progress-text">In-Progress</span>
+                                    </div>
+                                    <div class="dropdown dropleft">
+                                        <button class="mb-0 btn priority-grey-btn dropdown-toggle no-before" data-toggle="dropdown">Change</button>
+                                        <div class="dropdown-menu stop-propagation shadow min-width-200">
+                                            <!-- <p class="text-clr fs-18 pt-3 pl-4 mb-3">Status options</p>    -->
+                                            <ul class="nav flex-column my-2 priority-type-ul">
+                                                <li>
+                                                    <label class="priority-div">
+                                                        <span class="text-clr">To Do</span>
+                                                    </label>
+            
+                                                    <label class="priority-div">
+                                                        <span class="text-clr">In-Progress</span>
+                                                    </label>
+            
+                                                    <label class="priority-div">
+                                                        <span>Done</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="collapse-wrapper mb-4">
+                        <div class="side-header d-flex align-items-center justify-content-between">
+                            <p class="mb-0"><i class="fas fa-clock mr-2"></i> Timer</p>
+                            <a class="btn collapse-btn" data-toggle="collapse" href="#timerCollapse" role="button" aria-expanded="false" aria-controls="timerCollapse"><i class="fas fa-chevron-up"></i></a>
+                        </div>
+
+                        <div class="collapse show" id="timerCollapse">
+                            <div class="card card-body collapse-div">
+                                <div class="text-center">
+                                    <p class="collapse-timer-numbers" id="projectTimer">00:00:00</p>
+                                    <button id="startTimerBtn" class="btn collapse-timer-btn">Start Timer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="task-bottom-details mb-4">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label class="grey-clr-1 fs-14">Estimation:</label>
+                            <p class="text-clr fs-14">8 hrs</p>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label class="grey-clr-1 fs-14">Time spent:</label>
+                            <p class="text-clr fs-14">05:49 hrs</p>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label class="grey-clr-1 fs-14">Last updated:</label>
+                            <p class="text-clr fs-14">Jul 20, 2021 12:16 PM</p>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label class="grey-clr-1 fs-14">Created:</label>
+                            <p class="text-clr fs-14">Jul 19, 2021 10:05 AM</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-progress-div">
+                        <div class="d-flex justify-content-between mb-2">
+                            <label class="mb-1 grey-clr-1 fs-16">Progress</label>
+                            <p class="mb-0 green-clr-1">75%</p>
+                        </div>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <div class="modal common-modal" id="taskModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <div class="task-modal-header">
+                    <h5 class="fs-24 bold-fw">Development of blog pages</h5>
+                    <div class="task-detailing-box d-flex align-items-center">
+                        <label class="mb-0 fs-14">Task 10</label>
+                        <i class="fas fa-circle small-dot"></i>
+                        <label class="mb-0 fs-14 blue-clr cursor-pointer" id="addSubTaskBtn"><i class="fas fa-tasks mr-2"></i>Add Sub-Task</label>
+                        <i class="fas fa-circle small-dot"></i>
+                        <a href="javascript:void()" class="fs-14 blue-clr"><i class="fas fa-link mr-2"></i>Task Link</a>
+                        <i class="fas fa-circle small-dot"></i>
+                        <div class="btn-group dropdown custom-select-group">
+                            <label class="mb-0 cursor-pointer task-priority-color priority-bg-3 medium dropdown-toggle no-after" data-toggle="dropdown"></label>
+                            <div class="dropdown-menu stop-propagation shadow min-width-250">
+                                <p class="text-clr fs-18 pt-3 pl-4 mb-3">Priority Types</p>   
+                                <ul class="nav flex-column my-2 priority-type-ul">
+                                    <li>
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-1">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span class="text-clr">Very Low</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-2">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span class="text-clr">Low</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-3">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span>Medium</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-4">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span>High</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-5">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span>Urgent</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+            </div>
+            <div class="modal-body pt-0">
+                <div class="task-desc-div">
+                    <label class="modal-task-label grey-clr-1 fs-14">Description</label>
+                    <p class="task-desc-para">This task includes Main Blog Page, Single Blog Page, Search Blog, Blog Categories, Email Subscription for Blog, Recent Blogs </p>
+                </div>
+
+                <div class="sub-tasks-div">
+                    <div class="task-add-div d-none">
+                        <div class="group form-group mr-3"> 
+                            <input type="text" class="form-control" id="taskName" name="taskName" required> 
+                            <span class="highlight"></span>
+                            <span class="bar"></span> 
+                            <label for="taskName">What is to be done?</label>
+                        </div>
+                        <button class="btn task-add-plus-btn mr-2"><i class="fas fa-plus"></i></button>
+                        <button class="btn task-add-cancel-btn"><img src="images/cross-icon-red.svg" class="img-fluid" alt="Cross Icon"></button>
+                    </div>
+
+                    <label class="modal-task-label grey-clr-1 fs-14">Sub-tasks</label>
+                    <ul class="sub-tasks-ul">
+                        <li>
+                            <p class="">Addding new features in the blog</p>
+                        </li>
+                        <li>
+                            <p class="">Providing social media links to the single blog</p>
+                        </li>
+                        <li>
+                            <p class="">Adding email newsletter field for the users</p>
+                        </li>
+                    </ul>
+
+                        
+                    </div>
+
+                    <div class="task-team-div">
+                        <label class="modal-task-label grey-clr-1 fs-14">Team</label>
+                        <ul class="nav">
+                            <li class="nav-item mr-2">
+                                <div class="member-img-div">
+                                    <img src="images/dashboard/avatars/avatar-3.png" class="member-img img-fluid" alt="Image">
+                                </div>
+                            </li>
+                            <li class="nav-item mr-2">
+                                <div class="dropdown custom-select-group">
+                                    <label class="dropdown-toggle task-add-label no-after cursor-pointer" data-toggle="dropdown"><i class="fas fa-plus"></i></label>
+                                    <div class="dropdown-menu stop-propagation shadow w-auto">
+                                        <a href="javascript:void(0)" class="dropdown-item">Select All</a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="fas fa-user-plus square-box mr-2"></i> Add new member</a>
+                                        <div class="dropdown-divider"></div>
+                                        <label for="check1-1" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check1-1"> <span class="name-span-box">VP</span> Ved Prakash</label>
+                                        <label for="check2-1" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check2-1"> <span class="name-span-box">YS</span> Yogesh Sharma</label>
+                                        <label for="check3-1" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check3-1"> <span class="name-span-box">PK</span> Pravin Kumar</label>
+                                        <label for="check4-1" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check4-1"> <span class="name-span-box">ST</span> Sima Tiwari</label>
+                                      </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-body-inner more-padding">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="common-drop-area" id="dropArea1">
+                                    <input type="file" id="fileInput1" multiple hidden>
+                                    <p class="drag-para">Drag your files to attach or <label class="mb-0">click to browse</label></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <table id="imgTable1" width="100%" class="upload-img-table">                        
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-btn-group">
+                            <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                            <button class="btn task-add-btn medium-fw fs-mob-16">Update changes</button>
+                        </div>                  
+                    </form>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <div class="modal common-modal" id="addTaskModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="fs-24 bold-fw">Add Task</h5>
+                <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body-inner more-padding">
+                    <form onsubmit="return false;">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="group form-group mr-3"> 
+                                    <input type="text" class="form-control" id="taskName" name="taskName" required> 
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span> 
+                                    <!-- <b><small style="color:red; font-weight: 500;" id="alert_first_name"> --- Error message will show here --- </small></b>  -->
+                                    <label for="taskName">Task Name</label>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="group text-group form-group mb-3">
+                                    <textarea id="groupDescription" required="" spellcheck="false"></textarea>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label for="groupDescription">Task Description</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <div class="form-group p-relative mr-3"> 
+                                    <div class="btn-group w-100 custom-select-group">
+                                        <div class="dropdown-toggle w-100 custom-dropdown-toggle" data-toggle="dropdown">Set task priority</div>
+                                        <div class="dropdown-menu stop-propagation shadow">
+                                            <p class="text-clr fs-18 pt-3 pl-4 mb-3">Priority Types</p>   
+                                            <ul class="nav flex-column my-2 priority-type-ul">
+                                                <li>
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-1">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span class="text-clr">Very Low</span>
+                                                    </label>
+
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-2">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span class="text-clr">Low</span>
+                                                    </label>
+
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-3">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span>Medium</span>
+                                                    </label>
+
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-4">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span>High</span>
+                                                    </label>
+
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-5">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span>Urgent</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <span class="highlight"></span> 
+                                    <span class="bar"></span>
+                                    <label for="memberPhone" class="select-label">Priority Type</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group p-relative ml-3"> 
+                                    <div class="btn-group w-100 custom-select-group show">
+                                        <div class="dropdown-toggle w-100 custom-dropdown-toggle" data-toggle="dropdown">
+                                        Select your team
+                                        </div>
+                                        <div class="dropdown-menu stop-propagation shadow">
+                                            <a href="javascript:void(0)" class="dropdown-item">Select All</a>
+                                            <a href="javascript:void(0)" class="dropdown-item"><i class="fas fa-user-plus square-box mr-2"></i> Add new member</a>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="dropdown-item cursor-pointer mb-0">
+                                                <input type="checkbox" class="mr-2 styled-checkbox" id="check100">
+                                                <label for="check100">
+                                                    <span class="name-span-box styled-label">VP</span> Ved Prakash
+                                                </label>
+                                            </div>
+                                            <div  class="dropdown-item cursor-pointer mb-0 styled-label" href="#">
+                                                <input type="checkbox" class="mr-2 styled-checkbox" id="check102"> 
+                                                <label for="check102">
+                                                    <span class="name-span-box">YS</span> Yogesh Sharma
+                                                </label>
+                                            </div>
+                                            <div  class="dropdown-item cursor-pointer mb-0 styled-label" href="#">
+                                                <input type="checkbox" class="mr-2 styled-checkbox" id="check103"> 
+                                                <label for="check103">
+                                                    <span class="name-span-box">PK</span> Pravin Kumar
+                                                </label>
+                                            </div>
+                                            <div class="dropdown-item cursor-pointer mb-0 styled-label" href="#">
+                                                <input type="checkbox" class="mr-2 styled-checkbox" id="check104">
+                                                <label for="check104">
+                                                    <span class="name-span-box">ST</span> Sima Tiwari
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="highlight"></span> 
+                                    <span class="bar"></span>
+                                    <label for="memberPhone" class="select-label">Team Members</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <div class="group form-group mr-3 pt-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="inc-dec-input">
+                                            <div class="input-group">
+                                            <span class="input-group-btn border-right d-flex">
+                                                <button type="button" class="quantity-left-minus btn btn-number"  data-type="minus" data-field="">
+                                                <i class="fas fa-minus"></i>
+                                                </button>
+                                            </span>
+                                            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="8" min="0" max="100">
+                                            <span class="input-group-btn border-left d-flex">
+                                                <button type="button" class="quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                                                <i class="fas fa-plus"></i>
+                                                </button>
+                                            </span>
+                                            </div>
+                                        </div>
+                                        <span class="mb-0 text-clr ml-2">hours</span>
+                                    </div>
+                                    <span class="highlight"></span> 
+                                    <span class="bar"></span> 
+                                    <label for="selectRole" class="select-label">Estimated Time (In hours)</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                            
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="common-drop-area" id="dropArea">
+                                    <input type="file" id="fileInput" multiple hidden>
+                                    <p class="drag-para">Drag your files to attach or <label class="mb-0">click to browse</label></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <table id="imgTable" width="100%" class="upload-img-table">                        
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    
+                        <div class="text-center">
+                            <a href="javascript:void(0)" class="btn reset-all-link">Reset All</a>
+                        </div>
+
+                        <div class="modal-btn-group">
+                            <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                            <button class="btn task-add-btn medium-fw fs-mob-16"> + Add</button>
+                        </div>                  
+                    </form>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>  
+
+    <div class="modal delete-modal" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="fs-24 bold-fw">Delete Task</h5>
+                    <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+                </div>
+    
+                <div class="modal-body">
+                    <div class="modal-body-inner">
+                        <h3 class="fs-28 medium-fw lh-1-5">Are you sure you want to delete this task?</h3>
+                        <div class="modal-btn-group mt-4">
+                            <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                            <a href="javascript:void(0)" id="add_task" class="btn task-add-btn medium-fw fs-mob-16"><i class="fas fa-minus mr-2"></i> Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+
+        $(function(){
+            $("#commentInput").on("input", function(){
+                this.style.height = (this.scrollHeight) + 'px';
+
+                if(!this.value){
+                    $(".comment-btns").addClass("d-none");
+                    this.style.height = '40px';
+                }else{
+                    $(".comment-btns").removeClass("d-none");
+                }
+            });
+            $("#cancelComment").on("click", function(){
+                $(".comment-btns").addClass("d-none");
+                $("#commentInput").val("");
+                $("#commentInput").css("height", "40px");
+            });
+        });
+
+        let sidebarToggler = document.getElementById("sidebarToggler");
+        let sidebar = document.querySelector(".dashboard-sidebar");
+
+        sidebarToggler.addEventListener("click", () => {
+            sidebar.classList.toggle("toggled");
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $(function(){
+            $(".stop-propagation").on('click', (e) => {
+                e.stopPropagation();
+            });
+
+            /* JS for Increment Decrement */
+            var quantitiy=0;
+                $('.quantity-right-plus').click(function(e){
+                    // Stop acting like a button
+                    e.preventDefault();
+                    // Get the field name
+                    var quantity = parseInt($('#quantity').val());
+                    // If is not undefined
+                        $('#quantity').val(quantity + 1);
+                        console.log(quantity);
+                });
+
+                $('.quantity-left-minus').click(function(e){
+                    // Stop acting like a button
+                    e.preventDefault();
+                    // Get the field name
+                    var quantity = parseInt($('#quantity').val());
+                    // If is not undefined
+                    if(quantity>0){
+                        $('#quantity').val(quantity - 1);
+                    }
+                }); 
+            });
+
+        function deleteRow(btn){
+            let row = btn.closest("tr");
+            row.remove();
+        }
+
+        /* File JS */
+        let fileInput = document.getElementById("fileInput");
+		let dropArea = document.getElementById("dropArea");
+		let table = document.getElementById("imgTable");
+
+		dropArea.addEventListener("click", () => {
+			fileInput.click();
+		});		
+
+		fileInput.addEventListener("change", () => {
+			let files = fileInput.files;
+
+			readallfiles(files);
+
+			function readallfiles(files) {
+				var reader = new FileReader();  
+				function readFile(index) {
+					if( index >= files.length ) return;
+					var file = files[index];
+					reader.onload = function(e) {
+					// Take the File Content
+					var fileUrl = e.target.result;
+					readFile(index+1);
+
+                    console.log(files);
+					
+					// let allowedExtensions = ["image/*", "application/*"];
+						// if(allowedExtensions.includes(file.type)){
+							let tr = `<tr><td><img id="foo" src="${fileUrl}" class="img" alt=""></td><td>${file.name}</td><td><button class="btn actionBtn" onclick="deleteRow(this);"><i class="fa fa-times"></i></button></td></tr>`;
+							table.querySelector("tbody").innerHTML += tr;
+						// }
+					}
+					reader.readAsDataURL(file);
+				}
+				readFile(0);
+			}
+			
+		})
+
+		dropArea.addEventListener("dragover", (e) => {
+			e.preventDefault();
+			dropArea.classList.add("plain-border");
+		});
+
+		dropArea.addEventListener("dragleave", (e) => {
+			e.preventDefault();
+			dropArea.classList.remove("plain-border");
+		});
+
+		dropArea.addEventListener("drop", (e) => {
+			e.preventDefault();
+            fileInput.click();
+			dropArea.classList.remove("plain-border");
+
+			var files = e.dataTransfer.files;
+
+			readallfiles(files);
+
+			function readallfiles(files) {
+				var reader = new FileReader();
+				function readFile(index) {
+					if( index >= files.length ) return;
+					var file = files[index];
+					reader.onload = function(e) {
+					var fileUrl = e.target.result;
+					readFile(index+1);
+					
+					// let allowedExtensions = ["image/*", "application/*"];
+						// if(allowedExtensions.includes(file.type)){
+							let tr = `<tr><td><img id="foo" src="${fileUrl}" class="img" alt=""></td><td>${file.name}</td><td><button class="btn actionBtn" onclick="deleteRow(this);"><i class="fa fa-times"></i></button></td></tr>`;
+							table.querySelector("tbody").innerHTML += tr;
+						// }
+					}
+					reader.readAsDataURL(file);
+				}
+				readFile(0);
+			}				
+		});
+
+         /* File JS */
+         let fileInput1 = document.getElementById("fileInput1");
+		let dropArea1 = document.getElementById("dropArea1");
+		let table1 = document.getElementById("imgTable1");
+
+		dropArea1.addEventListener("click", () => {
+			fileInput1.click();
+		});		
+
+		fileInput1.addEventListener("change", () => {
+			let files = fileInput1.files;
+
+			readallfiles(files);
+
+			function readallfiles(files) {
+				var reader = new FileReader();  
+				function readFile(index) {
+					if( index >= files.length ) return;
+					var file = files[index];
+					reader.onload = function(e) {
+					// Take the File Content
+					var fileUrl = e.target.result;
+					readFile(index+1);
+
+                    console.log(files);
+					
+					// let allowedExtensions = ["image/*", "application/*"];
+						// if(allowedExtensions.includes(file.type)){
+							let tr = `<tr><td><img id="foo" src="${fileUrl}" class="img" alt=""></td><td>${file.name}</td><td><button class="btn actionBtn" onclick="deleteRow(this);"><i class="fa fa-times"></i></button></td></tr>`;
+							table1.querySelector("tbody").innerHTML += tr;
+						// }
+					}
+					reader.readAsDataURL(file);
+				}
+				readFile(0);
+			}
+			
+		})
+
+		dropArea1.addEventListener("dragover", (e) => {
+			e.preventDefault();
+			dropArea1.classList.add("plain-border");
+		});
+
+		dropArea1.addEventListener("dragleave", (e) => {
+			e.preventDefault();
+			dropArea1.classList.remove("plain-border");
+		});
+
+		dropArea1.addEventListener("drop", (e) => {
+			e.preventDefault();
+			dropArea1.classList.remove("plain-border");
+
+			var files = e.dataTransfer.files;
+
+			readallfiles(files);
+
+			function readallfiles(files) {
+				var reader = new FileReader();
+				function readFile(index) {
+					if( index >= files.length ) return;
+					var file = files[index];
+					reader.onload = function(e) {
+					var fileUrl = e.target.result;
+					readFile(index+1);
+					
+					// let allowedExtensions = ["image/*", "application/*"];
+						// if(allowedExtensions.includes(file.type)){
+							let tr = `<tr><td><img id="foo" src="${fileUrl}" class="img" alt=""></td><td>${file.name}</td><td><button class="btn actionBtn" onclick="deleteRow(this);"><i class="fa fa-times"></i></button></td></tr>`;
+							table1.querySelector("tbody").innerHTML += tr;
+						// }
+					}
+					reader.readAsDataURL(file);
+				}
+				readFile(0);
+			}				
+		});
+    </script>
+
+    <script>
+        let addSubTaskBtn = document.querySelector("#addSubTaskBtn");
+
+        let taskAddDiv = document.querySelector('.task-add-div');
+
+        function emptyInput(){
+            taskAddDiv.querySelector("input").value = "";
+            taskAddDiv.querySelector("input").focus();
+        }
+
+        addSubTaskBtn.addEventListener("click", () => {
+            taskAddDiv.classList.remove("d-none");
+            taskAddDiv.querySelector('input').focus();
+        });
+        
+        let taskAddBtns = document.querySelectorAll(".task-add-plus-btn");
+        let taskAddCancelBtns = document.querySelectorAll(".task-add-cancel-btn");
+
+        let subTaskUl = document.querySelector(".sub-tasks-ul");
+
+        taskAddBtns.forEach( (item) => {
+            item.addEventListener("click", () => {
+                let parentdiv = item.closest(".task-add-div");
+                let inpValue = parentdiv.querySelector("input").value;
+                if(inpValue){
+                    subTaskUl.innerHTML += `<li><p>${inpValue}</p></li>`;
+                    emptyInput();
+                }
+                
+            })
+        })
+
+
+        taskAddCancelBtns.forEach( (item) => {
+            item.addEventListener("click", () => {
+                let parentdiv = item.closest(".task-add-div");
+                parentdiv.classList.add("d-none");
+            })
+        });
+    </script>
+
+<script>
+    let startTimerBtn =  document.getElementById("startTimerBtn");
+
+    var num = 0;  
+    var intervalId;
+
+    startTimerBtn.addEventListener('click', () => {
+        startTimerBtn.classList.toggle("started");
+        if(startTimerBtn.classList.contains("started")){
+            startTimerBtn.innerHTML = 'Stop Timer';
+            startTimerBtn.classList.add("red-bg");
+            intervalId = setInterval(timing, 1000);
+        }else{
+            startTimerBtn.innerHTML = 'Start Timer';
+            clearInterval(intervalId);
+            startTimerBtn.classList.remove("red-bg");
+        }
+    });
+
+    function timing(){
+        num++;
+        sec = num % 60;
+        min = (Math.floor(num / 60 )) % 60;
+        hr = Math.floor(num / 3600);
+        // document.getElementById("navbarTimer").innerHTML = `${hr < 10 ? `0${hr}` : hr}:${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}`;  
+        document.getElementById("projectTimer").innerHTML = `${hr < 10 ? `0${hr}` : hr}:${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}`;  
+    }
+</script>
+</body>
+</html>

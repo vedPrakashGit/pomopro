@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon-64x64.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard-responsive.css">
+    <title>Pomopro - Team</title>
+</head>
+
+<body>
+    <nav class="navbar dashboard-navbar">
+        <div class="d-flex align-items-center ml-0 ml-md-3">
+            <span id="sidebarToggler">
+                <img src="images/dashboard/hamburger.svg" class="mr-3 cursor-pointer" alt="Hamburger" width="35" height="35">
+            </span>
+            <a class="navbar-brand" href="dashboard.html">
+                <img src="images/logo-1.svg" width="151" height="38" class="img-fluid d-none d-md-block" alt="Pomopro Logo">
+                <img src="images/logo-icon-1.svg" width="35" height="35" class="img-fluid d-block d-md-none" alt="Pomopro Logo">
+            </a>
+        </div>
+        <ul class="nav ml-auto my-2 my-lg-0 dashboard-top-ul align-items-center">
+            <li class="nav-item active">
+                <span class="nav-link top-time-text"><i class="fas fa-clock mr-2"></i> 00:00:00</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link icon-link" href="#"><i class="fas fa-bell"></i></a>
+            </li>
+            <li class="nav-item dropdown user-dropdown">
+                <a class="nav-link dropdown-toggle no-after mr-0 mr-md-3" href="#" id="topUserDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <div class="top-user-img-div">
+                        <img src="images/dashboard/avatars/avatar-1.png" class="img-fluid top-user-img" alt="User Image">
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="topUserDropdown">
+                    <span class="dropdown-item-text medium-fw nowrap">Hi, John Pascal</span>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i> Profile</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i> Setting</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt mr-2"></i> Log Out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="dashboard-body">
+        <aside class="dashboard-sidebar">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <img src="images/dashboard/dashboard.svg" class="aside-icon" width="25" height="25" alt="Dashboard Icon">
+                        <span class="text-uppercase dashboard-nav-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item active">
+                    <a href="team.html" class="nav-link">
+                        <img src="images/dashboard/team.svg" class="aside-icon" width="25" height="25" alt="Team Icon">
+                        <span class="text-uppercase dashboard-nav-text">Team</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">
+                        <img src="images/dashboard/projects.svg" class="aside-icon" width="25" height="25" alt="Project Icon">
+                        <span class="text-uppercase dashboard-nav-text">Projects</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link">
+                        <img src="images/dashboard/clients.svg" class="aside-icon" width="25" height="25" alt="Client Icon">
+                        <span class="text-uppercase dashboard-nav-text">Client</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link">
+                        <img src="images/dashboard/dashboard.svg" class="aside-icon" width="25" height="25" alt="Setting Icon">
+                        <span class="text-uppercase dashboard-nav-text">Setting</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <div class="dashboard-inner-wrapper">
+            <div class="dashboard-inner">
+                <div class="team-group-tabs">
+                    <ul class="nav nav-tabs" id="teamTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a href="#team" class="nav-link active text-clr" id="team-tab" role="tab" data-toggle="tab" aria-selected="true" aria-controls="team">Team</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="#group" class="nav-link text-clr" id="group-tab" role="tab" data-toggle="tab" aria-selected="true" aria-controls="group">Group</a>
+                        </li>
+                    </ul>
+                    <div>
+                        <button id="addMemberBtn" class="btn blue-dark-btn" data-toggle="modal" data-target="#addTeamMember"><img src="images/dashboard/icons/plus-square.svg" class="img-fluid" alt="Plus Icon" width="20" height="20"> Add New</button>
+
+                        <button id="addGroupBtn" class="btn blue-dark-btn d-none" data-toggle="modal" data-target="#addGroup"><img src="images/dashboard/icons/plus-square.svg" class="img-fluid" alt="Plus Icon" width="20" height="20"> Add New</button>
+                    </div>
+
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
+                        <div class="filters-wrapper">
+                            <div class="row my-3">
+                                <div class="col-sm-6">
+                                    <div class="d-flex">
+                                        <select class="form-control mr-3">
+                                        <option value="" selected>Show All</option>
+                                        <!-- <option value=""></option> -->
+                                        <!-- <option value=""></option> -->
+            
+                                    </select>
+                                        <select class="form-control mr-3">
+                                        <option value="" selected>Role</option>
+                                        <option value="">Manager</option>
+                                        <option value="">Front-end Developer</option>
+                                        <option value="">Back-end Developer</option>
+                                        <option value="">React Developer</option>
+                                        <option value="">Digital Specialist</option>                            
+                                    </select>
+                                        <select class="form-control">
+                                        <option value="" selected>Group</option>
+                                        <option value="">Admin</option>
+                                        <option value="">Designer</option>
+                                        <option value="">Developer</option>
+                                        <option value="">Digital Media</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <form>
+                                        <div class="form-group mb-0 d-flex justify-content-end">
+                                            <input type="text" placeholder="Type to search..." class="form-control table-search-input">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="alert alert-success fade show" role="alert">
+                                        The record has been successfully <strong>updated.</strong>
+                                        <button type="button" class="close" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="alert alert-danger fade show" role="alert">
+                                        Sorry, some <strong>error</strong> occured during the process. Try later.
+                                        <button type="button" class="close" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table common-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Group</th>
+                                        <th>Active Projects</th>
+                                        <th>Rate/hr</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="member-img-div">
+                                                    <img src="images/dashboard/avatars/avatar-4.png" class="member-img img-fluid" alt="Image">
+                                                    <!-- <span class="member-name-initials">IS</span> -->
+                                                </div>
+                                                <span class="user-name-text ml-2">Yogesh Sharma<span>                                            
+                                        </div>
+                                    </td>
+                                    <td>yogesh@epixelsoftware.com</td>
+                                    <td>Manager</td>
+                                    <td>Admin</td>
+                                    <td>
+                                        <div class="dropdown timer-project-dropdown p-0">
+                                            <button class="btn dropdown-toggle text-clr fs-14 project-number-btn no-after" type="button" data-toggle="dropdown">4</button>
+                                            <div class="dropdown-menu shadow">
+                                                <a class="dropdown-item" href="#"><span class="company-short-name">Ce</span> Cedibet</a>
+                                                <a class="dropdown-item" href="#"><span class="company-short-name">Li</span> Love is the Answer</a>
+                                                <a class="dropdown-item" href="#"><span class="company-short-name">Ep</span> EPixel</a>
+                                                <a class="dropdown-item" href="#"><span class="company-short-name">Zy</span> Zypsa</a>
+                                            </div>
+                        </div>
+                        </td>
+                        <td>$50</td>
+                        <td>
+                            <!-- <span class="status-active">Active</span> -->
+                            <div class="status-indicator-div">
+                                <input type="checkbox" id="c1" class="status-indicator-input" hidden checked>
+                                <label for="c1" class="status-indicator-label"></label> 
+                            </div>
+                            
+                        </td>
+                        <td>
+                            <div class="dropdown table-action-dropdown">
+                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+
+                                <div class="dropdown-menu shadow">
+                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-user"></i> Profile</a>
+                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#editTeamMember" data-toggle="modal"><i class="fas fa-pen"></i> Edit</a>
+                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                </div>
+
+                            </div>
+                        </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="member-img-div">
+                                        <img src="images/dashboard/avatars/avatar-6.png" class="member-img img-fluid" alt="Image">
+                                        <!-- <span class="member-name-initials">IS</span> -->
+                                    </div>
+                                    <span class="user-name-text ml-2">Ved Prakash<span>                                            
+                                        </div>
+                                    </td>
+                                    <td>ved@epixelsoftware.com</td>
+                                    <td>Front-end Developer</td>
+                                    <td>Designer</td>
+                                    <td>
+                                        <div class="dropdown timer-project-dropdown p-0">
+                                            <button class="btn dropdown-toggle text-clr fs-14 project-number-btn no-after" type="button" data-toggle="dropdown">2</button>
+                                            <div class="dropdown-menu shadow">
+                                                <a class="dropdown-item" href="#"><span class="company-short-name">Ep</span> EPixel</a>
+                                    <a class="dropdown-item" href="#"><span class="company-short-name">Zy</span> Zypsa</a>
+                                </div>
+                    </div>
+                    </td>
+                    <td>$50</td>
+                    <td>
+                        <!-- <span class="status-active">Active</span> -->
+                        <div class="status-indicator-div">
+                            <input type="checkbox" id="c2" class="status-indicator-input" hidden>
+                            <label for="c2" class="status-indicator-label"></label> 
+                        </div>
+                    </td>
+                    <td>
+                        <div class="dropdown table-action-dropdown">
+                            <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+
+                            <div class="dropdown-menu shadow">
+                                <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-user"></i> Profile</a>
+                                <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#editTeamMember" data-toggle="modal"><i class="fas fa-pen"></i> Edit</a>
+                                <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                            </div>
+
+                        </div>
+                    </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="member-img-div">
+                                    <img src="images/dashboard/avatars/avatar-7.png" class="member-img img-fluid" alt="Image">
+                                    <!-- <span class="member-name-initials">IS</span> -->
+                                </div>
+                                <span class="user-name-text ml-2">D. Mohan Rao<span>                                            
+                                        </div>
+                                    </td>
+                                    <td>mohan@epixelsoftware.com</td>
+                                    <td>Back-end Developer</td>
+                                    <td>Developer</td>
+                                    <td>
+                                        <div class="dropdown timer-project-dropdown p-0">
+                                            <button class="btn dropdown-toggle text-clr fs-14 project-number-btn no-after" type="button" data-toggle="dropdown">5</button>
+                                            <div class="dropdown-menu shadow">
+                                                <a class="dropdown-item" href="#"><span class="company-short-name">Zo</span> Zoonisk</a>
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Ce</span> Cedibet</a>
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Li</span> Love is the Answer</a>
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Ep</span> EPixel</a>
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Zy</span> Zypsa</a>
+                            </div>
+                </div>
+                </td>
+                <td>$50</td>
+                <td>
+                    <!-- <span class="status-inactive">Inactive</span> -->
+                    <div class="status-indicator-div">
+                        <input type="checkbox" id="c3" class="status-indicator-input" hidden checked>
+                        <label for="c3" class="status-indicator-label"></label> 
+                    </div>
+                </td>
+                <td>
+                    <div class="dropdown table-action-dropdown">
+                        <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+
+                        <div class="dropdown-menu shadow">
+                            <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-user"></i> Profile</a>
+                            <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#editTeamMember" data-toggle="modal"><i class="fas fa-pen"></i> Edit</a>
+                            <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                        </div>
+
+                    </div>
+                </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="member-img-div">
+                                <img src="images/dashboard/avatars/avatar-3.png" class="member-img img-fluid" alt="Image">
+                                <!-- <span class="member-name-initials">IS</span> -->
+                            </div>
+                            <span class="user-name-text ml-2">Shweta Singh<span>                                            
+                                        </div>
+                                    </td>
+                                    <td>shweta@epixelsoftware.com</td>
+                                    <td>Digital Media Specialist</td>
+                                    <td>Digital Media</td>
+                                    <td>
+                                        <div class="dropdown timer-project-dropdown p-0">
+                                        <button class="btn dropdown-toggle text-clr fs-14 project-number-btn no-after" type="button" data-toggle="dropdown">1</button>
+                                        <div class="dropdown-menu shadow">
+                                            <a class="dropdown-item" href="#"><span class="company-short-name">Zo</span> Zoonisk</a>
+                        </div>
+            </div>
+            </td>
+            <td>$50</td>
+            <td>
+                <!-- <span class="status-active">Active</span> -->
+                <div class="status-indicator-div">
+                    <input type="checkbox" id="c4" class="status-indicator-input" hidden checked>
+                    <label for="c4" class="status-indicator-label"></label> 
+                </div>
+            </td>
+            <td>
+                <div class="dropdown table-action-dropdown">
+                    <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+
+                    <div class="dropdown-menu shadow">
+                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-user"></i> Profile</a>
+                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#editTeamMember" data-toggle="modal"><i class="fas fa-pen"></i> Edit</a>
+                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                    </div>
+
+                </div>
+            </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="member-img-div">
+                            <img src="images/dashboard/avatars/avatar-9.png" class="member-img img-fluid" alt="Image">
+                            <!-- <span class="member-name-initials">IS</span> -->
+                        </div>
+                        <span class="user-name-text ml-2">Pravin Kumar<span>                                            
+                                        </div>
+                                    </td>
+                                    <td>pravin@epixelsoftware.com</td>
+                                    <td>React Developer</td>
+                                    <td>Developer</td>
+                                    <td>
+                                        <div class="dropdown timer-project-dropdown p-0">
+                                            <button class="btn dropdown-toggle text-clr fs-14 project-number-btn no-after" type="button" data-toggle="dropdown">3</button>
+                                            <div class="dropdown-menu shadow">
+                                                <a class="dropdown-item" href="#"><span class="company-short-name">Li</span> Love is the Answer</a>
+                        <a class="dropdown-item" href="#"><span class="company-short-name">Ep</span> EPixel</a>
+                        <a class="dropdown-item" href="#"><span class="company-short-name">Zy</span> Zypsa</a>
+                    </div>
+        </div>
+        </td>
+        <td>$50</td>
+        <td>
+            <!-- <span class="status-active">Active</span> -->
+            <div class="status-indicator-div">
+                <input type="checkbox" id="c5" class="status-indicator-input" hidden checked>
+                <label for="c5" class="status-indicator-label"></label> 
+            </div>
+        </td>
+        <td>
+            <div class="dropdown table-action-dropdown">
+                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+
+                <div class="dropdown-menu shadow">
+                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-user"></i> Profile</a>
+                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#editTeamMember" data-toggle="modal"><i class="fas fa-pen"></i> Edit</a>
+                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                </div>
+
+            </div>
+        </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="member-img-div">
+                        <img src="images/dashboard/avatars/avatar-10.png" class="member-img img-fluid" alt="Image">
+                        <!-- <span class="member-name-initials">IS</span> -->
+                    </div>
+                    <span class="user-name-text ml-2">Dharmendra Shah<span>                                            
+                                        </div>
+                                    </td>
+                                    <td>dharmendra@epixelsoftware.com</td>
+                                    <td>Manager</td>
+                                    <td>Admin</td>
+                                    <td>
+                                        <div class="dropdown timer-project-dropdown p-0">
+                                            <button class="btn dropdown-toggle text-clr fs-14 project-number-btn no-after" type="button" data-toggle="dropdown">4</button>
+                                            <div class="dropdown-menu shadow">
+                                                <a class="dropdown-item" href="#"><span class="company-short-name">Ce</span> Cedibet</a>
+                    <a class="dropdown-item" href="#"><span class="company-short-name">Li</span> Love is the Answer</a>
+                    <a class="dropdown-item" href="#"><span class="company-short-name">Ep</span> EPixel</a>
+                    <a class="dropdown-item" href="#"><span class="company-short-name">Zy</span> Zypsa</a>
+                </div>
+                </div>
+            </td>
+            <td>$50</td>
+            <td>
+                <!-- <span class="status-inactive">Inactive</span> -->
+                <div class="status-indicator-div">
+                    <input type="checkbox" id="c6" class="status-indicator-input" hidden>
+                    <label for="c6" class="status-indicator-label"></label> 
+                </div>
+            </td>
+            <td>
+                <div class="dropdown table-action-dropdown">
+                    <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+
+                    <div class="dropdown-menu shadow">
+                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-user"></i> Profile</a>
+                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#editTeamMember" data-toggle="modal"><i class="fas fa-pen"></i> Edit</a>
+                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        <div class="tab-pane fade" id="group" role="tabpanel" aria-labelledby="group-tab">
+            <div class="filters-wrapper">
+                <div class="row my-3">
+                    <div class="col-sm-6">
+                        <div class="d-flex">
+                            <select class="form-control mr-3 max-width-200">
+                                        <option value="" selected>Show All</option>
+                                    </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <form>
+                            <div class="form-group mb-0 d-flex justify-content-end">
+                                <input type="text" placeholder="Type to search..." class="form-control table-search-input">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table common-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Members</th>
+                            <th>Description</th>
+                            <th>Active</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Admin</td>
+                            <td>5</td>
+                            <td>They will manage all the projects.</td>
+                            <td>
+                                <!-- <span class="status-active">Active</span> -->
+                                <div class="status-indicator-div">
+                                    <input type="checkbox" id="c10" class="status-indicator-input" hidden checked>
+                                    <label for="c10" class="status-indicator-label"></label> 
+                                </div>
+                            </td>
+                            <td>
+                                <div class="dropdown table-action-dropdown">
+                                    <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+
+                                    <div class="dropdown-menu shadow">
+                                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#editGroup" data-toggle="modal"><i class="fas fa-pen"></i> Edit</a>
+                                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Developers</td>
+                            <td>15</td>
+                            <td>This group is for mobile developers</td>
+                            <td>
+                                <!-- <span class="status-active">Active</span> -->
+                                <div class="status-indicator-div">
+                                    <input type="checkbox" id="c7" class="status-indicator-input" hidden>
+                                    <label for="c7" class="status-indicator-label"></label> 
+                                </div>
+                            </td>
+                            <td>
+                                <div class="dropdown table-action-dropdown">
+                                    <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+
+                                    <div class="dropdown-menu shadow">
+                                        <a href="javascript:void(0)" data-target="#editGroup" data-toggle="modal" class="nav-link dropdown-item text-clr"><i class="fas fa-pen"></i> Edit</a>
+                                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Designers</td>
+                            <td>7</td>
+                            <td>Designers are awesome.</td>
+                            <td>
+                                <!-- <span class="status-active">Active</span> -->
+                                <div class="status-indicator-div">
+                                    <input type="checkbox" id="c8" class="status-indicator-input" hidden>
+                                    <label for="c8" class="status-indicator-label"></label> 
+                                </div>
+                            </td>
+                            <td>
+                                <div class="dropdown table-action-dropdown">
+                                    <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+
+                                    <div class="dropdown-menu shadow">
+                                        <a href="javascript:void(0)" data-target="#editGroup" data-toggle="modal" class="nav-link dropdown-item text-clr"><i class="fas fa-pen"></i> Edit</a>
+                                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Testers</td>
+                            <td>3</td>
+                            <td>Testers are testing all the applications from the scratch.</td>
+                            <td>
+                                <!-- <span class="status-inactive">Inactive</span> -->
+                                <div class="status-indicator-div">
+                                    <input type="checkbox" id="c9" class="status-indicator-input" hidden checked>
+                                    <label for="c9" class="status-indicator-label"></label> 
+                                </div>
+                            </td>
+                            <td>
+                                <div class="dropdown table-action-dropdown">
+                                    <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+
+                                    <div class="dropdown-menu shadow">
+                                        <a href="javascript:void(0)" data-target="#editGroup" data-toggle="modal" class="nav-link dropdown-item text-clr"><i class="fas fa-pen"></i> Edit</a>
+                                        <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <div class="modal common-modal" id="addTeamMember">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="fs-24 bold-fw">Add Team Member</h5>
+                    <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-inner more-padding">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="group form-group mr-3">
+                                        <input type="text" class="form-control" id="taskName" name="memberName" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <!-- <b><small style="color:red; font-weight: 500;" id="alert_first_name"> --- Error message will show here --- </small></b>  -->
+                                        <label for="taskName">Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="group form-group ml-3">
+                                        <input type="number" class="form-control" id="memberPhone" name="memberPhone" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="memberPhone">Phone</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="group form-group mr-3">
+                                        <input type="email" class="form-control" id="memberEmail" name="memberEmail" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="memberEmail">Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="group form-group ml-3">
+                                        <select id="selectGroup" class="form-control select-control">
+                                    <option value="1">Admin</option>
+                                    <option value="2">Designers</option>
+                                    <option value="3">Developers</option>
+                                    <option value="4">Digital Media</option>
+                                </select>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="selectGroup" class="select-label">Group</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="group form-group mr-3">
+                                        <select id="selectRole" class="form-control select-control">
+                                    <option value="1">Manager</option>
+                                    <option value="2">Front-end Developer</option>
+                                    <option value="3">Back-end Developer</option>
+                                    <option value="4">React Developer</option>
+                                    <option value="5">UI Desginer</option>
+                                    <option value="6">Digital Media Specialist</option>
+                                </select>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="selectRole" class="select-label">Role</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="group form-group ml-3">
+                                        <select id="selectWorkLength" class="form-control select-control">
+                                    <option value="1">1 hr</option>
+                                    <option value="2">2 hrs</option>
+                                    <option value="3">3 hrs</option>
+                                    <option value="4">4 hrs</option>
+                                    <option value="4">5 hrs</option>
+                                    <option value="4">6 hrs</option>
+                                    <option value="4">7 hrs</option>
+                                    <option value="4" selected>8 hrs</option>
+                                    <option value="4">9 hrs</option>
+                                    <option value="4">10 hrs</option>
+                                </select>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="selectWorkLength" class="select-label">Work Length</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="group form-group mr-3">
+                                        <select id="selectTimeZone" class="form-control select-control">
+                                    <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
+                                    <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
+                                    <option value="-10:00">(GMT -10:00) Hawaii</option>
+                                    <option value="-09:50">(GMT -9:30) Taiohae</option>
+                                    <option value="-09:00">(GMT -9:00) Alaska</option>
+                                    <option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+                                    <option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+                                    <option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+                                    <option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+                                    <option value="-04:50">(GMT -4:30) Caracas</option>
+                                    <option value="-04:00">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+                                    <option value="-03:50">(GMT -3:30) Newfoundland</option>
+                                    <option value="-03:00">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+                                    <option value="-02:00">(GMT -2:00) Mid-Atlantic</option>
+                                    <option value="-01:00">(GMT -1:00) Azores, Cape Verde Islands</option>
+                                    <option value="+00:00" selected="selected">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+                                    <option value="+01:00">(GMT +1:00) Brussels, Copenhagen, Madrid, Paris</option>
+                                    <option value="+02:00">(GMT +2:00) Kaliningrad, South Africa</option>
+                                    <option value="+03:00">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+                                    <option value="+03:50">(GMT +3:30) Tehran</option>
+                                    <option value="+04:00">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+                                    <option value="+04:50">(GMT +4:30) Kabul</option>
+                                    <option value="+05:00">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+                                    <option value="+05:50">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+                                    <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
+                                    <option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                                    <option value="+06:50">(GMT +6:30) Yangon, Mandalay</option>
+                                    <option value="+07:00">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                                    <option value="+08:00">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+                                    <option value="+08:75">(GMT +8:45) Eucla</option>
+                                    <option value="+09:00">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+                                    <option value="+09:50">(GMT +9:30) Adelaide, Darwin</option>
+                                    <option value="+10:00">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+                                    <option value="+10:50">(GMT +10:30) Lord Howe Island</option>
+                                    <option value="+11:00">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+                                    <option value="+11:50">(GMT +11:30) Norfolk Island</option>
+                                    <option value="+12:00">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+                                    <option value="+12:75">(GMT +12:45) Chatham Islands</option>
+                                    <option value="+13:00">(GMT +13:00) Apia, Nukualofa</option>
+                                    <option value="+14:00">(GMT +14:00) Line Islands, Tokelau</option>
+                                </select>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="selectTimeZone" class="select-label">Time Zone</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="group form-group ml-3">
+                                        <input type="number" class="form-control" id="memberRate" name="memberRate" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <!-- <b><small style="color:red; font-weight: 500;" id="alert_first_name"> --- Error message will show here --- </small></b>  -->
+                                        <label for="memberRate">Rate per hour (in $)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="javascript:void(0)" class="btn reset-all-link">Reset All</a>
+                            </div>
+
+                            <div class="modal-btn-group">
+                                <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                                <button class="btn task-add-btn medium-fw fs-mob-16"> + Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal common-modal" id="editTeamMember">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="fs-24 bold-fw">Update Team Member</h5>
+                    <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-inner more-padding">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="group form-group mr-3">
+                                        <input type="text" class="form-control" id="taskName2" value="Ved Prakash" name="memberName2" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <!-- <b><small style="color:red; font-weight: 500;" id="alert_first_name"> --- Error message will show here --- </small></b>  -->
+                                        <label for="taskName2">Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="group form-group ml-3">
+                                        <input type="number" class="form-control" id="memberPhone2" value="1234567890" name="memberPhone2" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="memberPhone2">Phone</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="group form-group mr-3">
+                                        <input type="email" class="form-control" id="memberEmail" value="ved@epixelsoftware.com" name="memberEmail" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="memberEmail">Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="group form-group ml-3">
+                                        <select id="selectGroup2" class="form-control select-control">
+                                    <option value="1">Admin</option>
+                                    <option value="2" selected>Designers</option>
+                                    <option value="3">Developers</option>
+                                    <option value="4">Digital Media</option>
+                                </select>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="selectGroup2" class="select-label">Group</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="group form-group mr-3">
+                                        <select id="selectRole2" class="form-control select-control">
+                                    <option value="1">Manager</option>
+                                    <option value="2" selected>Front-end Developer</option>
+                                    <option value="3">Back-end Developer</option>
+                                    <option value="4">React Developer</option>
+                                    <option value="5">UI Desginer</option>
+                                    <option value="6">Digital Media Specialist</option>
+                                </select>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="selectRole2" class="select-label">Role</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="group form-group ml-3">
+                                        <select id="selectWorkLength2" class="form-control select-control">
+                                    <option value="1">1 hr</option>
+                                    <option value="2">2 hrs</option>
+                                    <option value="3">3 hrs</option>
+                                    <option value="4">4 hrs</option>
+                                    <option value="4">5 hrs</option>
+                                    <option value="4">6 hrs</option>
+                                    <option value="4">7 hrs</option>
+                                    <option value="4" selected>8 hrs</option>
+                                    <option value="4">9 hrs</option>
+                                    <option value="4">10 hrs</option>
+                                </select>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="selectWorkLength2" class="select-label">Work Length</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="group form-group mr-3">
+                                        <select id="selectTimeZone2" class="form-control select-control">
+                                    <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
+                                    <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
+                                    <option value="-10:00">(GMT -10:00) Hawaii</option>
+                                    <option value="-09:50">(GMT -9:30) Taiohae</option>
+                                    <option value="-09:00">(GMT -9:00) Alaska</option>
+                                    <option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+                                    <option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+                                    <option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+                                    <option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+                                    <option value="-04:50">(GMT -4:30) Caracas</option>
+                                    <option value="-04:00">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+                                    <option value="-03:50">(GMT -3:30) Newfoundland</option>
+                                    <option value="-03:00">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+                                    <option value="-02:00">(GMT -2:00) Mid-Atlantic</option>
+                                    <option value="-01:00">(GMT -1:00) Azores, Cape Verde Islands</option>
+                                    <option value="+00:00" selected="selected">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+                                    <option value="+01:00">(GMT +1:00) Brussels, Copenhagen, Madrid, Paris</option>
+                                    <option value="+02:00">(GMT +2:00) Kaliningrad, South Africa</option>
+                                    <option value="+03:00">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+                                    <option value="+03:50">(GMT +3:30) Tehran</option>
+                                    <option value="+04:00">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+                                    <option value="+04:50">(GMT +4:30) Kabul</option>
+                                    <option value="+05:00">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+                                    <option value="+05:50">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+                                    <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
+                                    <option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                                    <option value="+06:50">(GMT +6:30) Yangon, Mandalay</option>
+                                    <option value="+07:00">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                                    <option value="+08:00">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+                                    <option value="+08:75">(GMT +8:45) Eucla</option>
+                                    <option value="+09:00">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+                                    <option value="+09:50">(GMT +9:30) Adelaide, Darwin</option>
+                                    <option value="+10:00">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+                                    <option value="+10:50">(GMT +10:30) Lord Howe Island</option>
+                                    <option value="+11:00">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+                                    <option value="+11:50">(GMT +11:30) Norfolk Island</option>
+                                    <option value="+12:00">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+                                    <option value="+12:75">(GMT +12:45) Chatham Islands</option>
+                                    <option value="+13:00">(GMT +13:00) Apia, Nukualofa</option>
+                                    <option value="+14:00">(GMT +14:00) Line Islands, Tokelau</option>
+                                </select>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="selectTimeZone2" class="select-label">Time Zone</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="group form-group ml-3">
+                                        <input type="number" class="form-control" id="memberRate" value="25.00" name="memberRate" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <!-- <b><small style="color:red; font-weight: 500;" id="alert_first_name"> --- Error message will show here --- </small></b>  -->
+                                        <label for="memberRate">Rate per hour (in $)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="javascript:void(0)" class="btn reset-all-link">Reset All</a>
+                            </div>
+
+                            <div class="modal-btn-group">
+                                <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                                <button class="btn task-add-btn medium-fw fs-mob-16"> Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal common-modal" id="addGroup">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="fs-24 bold-fw">Add Group</h5>
+                    <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-body-inner more-padding">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="group form-group mr-3">
+                                        <input type="text" class="form-control" id="groupName" name="groupName" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="groupName">Group Name</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="group text-group form-group mb-3">
+                                        <textarea id="groupDescription" required="" spellcheck="false"></textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="groupDescription">Group Description</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="javascript:void(0)" class="btn reset-all-link">Reset All</a>
+                            </div>
+
+                            <div class="modal-btn-group">
+                                <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                                <button class="btn task-add-btn medium-fw fs-mob-16"> + Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal common-modal" id="editGroup">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="fs-24 bold-fw">Update Group</h5>
+                    <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-body-inner more-padding">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="group form-group mr-3">
+                                        <input type="text" class="form-control" id="groupName2" value="Designers" name="groupName2" required>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="groupName2">Group Name</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="group text-group form-group mb-3">
+                                        <textarea id="groupDescription2" required="" spellcheck="false">They will design awesome UI for the client.</textarea>
+                                        <span class="highlight"></span>
+                                        <span class="bar"></span>
+                                        <label for="groupDescription2">Group Description</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="javascript:void(0)" class="btn reset-all-link">Reset All</a>
+                            </div>
+
+                            <div class="modal-btn-group">
+                                <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                                <button class="btn task-add-btn medium-fw fs-mob-16">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal delete-modal" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="fs-24 bold-fw">Delete Record</h5>
+                    <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-body-inner">
+                        <h3 class="fs-28 medium-fw lh-1-5">Are you sure you want to delete this record?</h3>
+                        <div class="modal-btn-group mt-4">
+                            <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                            <a href="javascript:void(0)" id="add_task" class="btn task-add-btn medium-fw fs-mob-16"><i class="fas fa-minus mr-2"></i> Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        let sidebarToggler = document.getElementById("sidebarToggler");
+        let sidebar = document.querySelector(".dashboard-sidebar");
+
+        sidebarToggler.addEventListener("click", () => {
+            sidebar.classList.toggle("toggled");
+        });
+
+        let teamTab = document.getElementById("team-tab");
+        let groupTab = document.getElementById("group-tab");
+
+        let addMemberBtn = document.getElementById("addMemberBtn");
+        let addGroupBtn = document.getElementById("addGroupBtn");
+
+        console.log(groupTab);
+
+        teamTab.addEventListener('click', function() {
+            addMemberBtn.classList.remove("d-none");
+            addGroupBtn.classList.add("d-none");
+        })
+        groupTab.addEventListener('click', function() {
+            addMemberBtn.classList.add("d-none");
+            addGroupBtn.classList.remove("d-none");
+        })
+    </script>
+</body>
+
+</html>

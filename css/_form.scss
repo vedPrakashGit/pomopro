@@ -1,0 +1,164 @@
+.group .form-control {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-shadow: none;
+    padding-left: 0;
+}
+.group .register-btn {
+    background-color: #283072;
+    border-color: #283072;
+    border-radius: 0;
+    color: #fff;
+    transition: 0.3s;
+    font-size: 20px;
+}
+.group .btn-primary:hover, .group .btn-primary:focus {
+    background-color: #ff4e4a;
+    outline: none;
+    border-color: #ff4e4a;
+}
+.group {
+    position: relative;
+    margin-bottom: 3rem;
+}
+.group input:focus {
+    outline: none;
+}
+.group label, .form-group .select-label {
+    color: #555;
+    font-size: 1.125rem;
+    font-weight: 400;
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+// .group input[name='dob']:focus ~ label,
+// .group input[name='dob']:valid ~ label {
+//     top: -20px;
+//     font-size: 0.8rem;
+//     color: var(--blue-clr);
+// }
+.group input:focus ~ label,
+.group input:valid ~ label {
+    top: -15px;
+    font-size: 0.75rem;
+    color: var(--logo-clr);
+}
+.form-group .select-label{
+    top: -15px;
+    font-size: 0.75rem;
+    color: var(--logo-clr);
+}
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+    background: var(--blue-clr);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+    left: 50%;
+}
+.bar:after {
+    right: 50%;
+}
+.group input:focus ~ .bar:before,
+.group input:focus ~ .bar:after {
+    width: 50%;
+}
+.group select:focus ~ .bar:before,
+.group select:focus ~ .bar:after {
+    width: 50%;
+}
+.highlight {
+    position: absolute;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+/* Active State */
+.group input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+.pwd-btn{
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+    cursor: pointer;
+}
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+.text-group textarea{
+    display: block;
+    background: none;
+    padding: 0.125rem 0.125rem 0.0625rem;
+    border-width: 0;
+    border-color: transparent;
+    line-height: 1.9;
+    width: 100%;
+    -webkit-transition: all 0.28s ease;
+    transition: all 0.28s ease;
+    box-shadow: none;
+    padding-top: 15px;
+    outline: none;
+    border-bottom: 1px solid #d7d7d7;
+}
+.text-group textarea:focus ~ label,
+.text-group textarea:valid ~ label,
+.text-group textarea.form-file ~ label,
+.text-group textarea.has-value ~ label {
+    font-size: 14px;
+    color: var(--logo-clr);
+    top: -1rem;
+    left: 0;
+}
+// .text-group textarea:focus ~ label {
+//     color: #272751;
+// }
+.text-group textarea:focus ~ .bar::before {
+    width: 100%;
+    left: 0;
+}

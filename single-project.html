@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon-64x64.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard-responsive.css">
+    <title>Pomopro - Single Project</title>
+</head>
+<body>
+    <nav class="navbar dashboard-navbar">
+        <div class="d-flex align-items-center ml-0 ml-md-3">
+            <span id="sidebarToggler">
+                <img src="images/dashboard/hamburger.svg" class="mr-3 cursor-pointer" alt="Hamburger" width="35" height="35">
+            </span>
+            <a class="navbar-brand" href="dashboard.html">
+                <img src="images/logo-1.svg" width="151" height="38" class="img-fluid d-none d-md-block" alt="Pomopro Logo">
+                <img src="images/logo-icon-1.svg" width="35" height="35" class="img-fluid d-block d-md-none" alt="Pomopro Logo">
+            </a>
+        </div>
+          <ul class="nav ml-auto my-2 my-lg-0 dashboard-top-ul align-items-center">
+            <li class="nav-item active">
+              <span class="nav-link top-time-text"><i class="fas fa-clock mr-2"></i> 00:00:00</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link icon-link" href="#"><i class="fas fa-bell"></i></a>
+            </li>
+            <li class="nav-item dropdown user-dropdown">
+              <a class="nav-link dropdown-toggle no-after mr-0 mr-md-3" href="#" id="topUserDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                <div class="top-user-img-div">
+                    <img src="images/dashboard/avatars/avatar-1.png" class="img-fluid top-user-img" alt="User Image">
+                </div>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="topUserDropdown">
+                <span class="dropdown-item-text medium-fw nowrap">Hi, John Pascal</span>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i> Setting</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt mr-2"></i> Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+    </nav>
+
+    <section class="dashboard-body">
+        <aside class="dashboard-sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <img src="images/dashboard/dashboard.svg" class="aside-icon" width="25" height="25" alt="Dashboard Icon"> 
+                    <span class="text-uppercase dashboard-nav-text">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="team.html" class="nav-link">
+                    <img src="images/dashboard/team.svg" class="aside-icon" width="25" height="25" alt="Team Icon"> 
+                    <span class="text-uppercase dashboard-nav-text">Team</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="projects.html" class="nav-link">
+                    <img src="images/dashboard/projects.svg" class="aside-icon" width="25" height="25" alt="Project Icon"> 
+                    <span class="text-uppercase dashboard-nav-text">Projects</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link">
+                    <img src="images/dashboard/clients.svg" class="aside-icon" width="25" height="25" alt="Client Icon"> 
+                    <span class="text-uppercase dashboard-nav-text">Client</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link">
+                    <img src="images/dashboard/dashboard.svg" class="aside-icon" width="25" height="25" alt="Setting Icon"> 
+                    <span class="text-uppercase dashboard-nav-text">Setting</span>
+                </a>
+            </li>
+        </ul>
+        </aside>
+        <div class="dashboard-inner-wrapper">
+        <div class="dashboard-inner">
+            <div class="single-project-name-div">
+                <h3 class="mb-0 single-project-name-heading"><span class="project-name-initials">Y</span> Yoonik </h3>
+
+                <button id="addMemberBtn" class="btn blue-dark-btn" data-toggle="modal" data-target="#addTaskModal"><img src="images/dashboard/icons/plus-square.svg" class="img-fluid" alt="Plus Icon" width="20" height="20"> Add Task</button>
+            </div>
+            <div class="team-group-tabs">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a href="#overview" class="nav-link text-clr" id="overview-tab" role="tab" data-toggle="tab" aria-selected="true" aria-controls="overview">Overview</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="#tasks" class="nav-link active text-clr" id="tasks-tab" role="tab" data-toggle="tab" aria-selected="true" aria-controls="tasks">Tasks</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="#timesheet" class="nav-link text-clr" id="timesheet-tab" role="tab" data-toggle="tab" aria-selected="true" aria-controls="timesheet">Timesheet</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="#milestone" class="nav-link text-clr" id="milestone-tab" role="tab" data-toggle="tab" aria-selected="true" aria-controls="milestone">Milestone</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="#files" class="nav-link text-clr" id="files-tab" role="tab" data-toggle="tab" aria-selected="true" aria-controls="files">Files</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="#discuss" class="nav-link text-clr" id="discuss-tab" role="tab" data-toggle="tab" aria-selected="true" aria-controls="discuss">Discussion</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="#activity" class="nav-link text-clr" id="activity-tab" role="tab" data-toggle="tab" aria-selected="true" aria-controls="activity">Activities</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                    <div class="div-wrapper">
+                        <div class="row">
+                            <div class="col-sm-6 mb-4 mb-md-0">
+                                <div class="overview-number-wrapper">
+                                    <div class="overview-number-div">
+                                        <span class="overview-number bold-fw fs-32 pomodoro-primary">50</span>
+                                        <label class="overview-number-label fs-16">Total Tasks</label>
+                                    </div>
+                                    <div class="overview-number-div">
+                                        <span class="overview-number bold-fw fs-32 green-clr-1">17</span>
+                                        <label class="overview-number-label fs-16">Active Tasks</label>
+                                    </div>
+                                    <div class="overview-number-div">
+                                        <span class="overview-number bold-fw fs-32 brown-clr">5</span>
+                                        <label class="overview-number-label fs-16">Overdue Tasks</label>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="overview-number-wrapper">
+                                    <div class="overview-number-div">
+                                        <span class="overview-number bold-fw fs-32 pomodoro-primary">102</span>
+                                        <label class="overview-number-label fs-16">Total Hours</label>
+                                    </div>
+                                    <div class="overview-number-div">
+                                        <span class="overview-number bold-fw fs-32 green-clr-1">$500</span>
+                                        <label class="overview-number-label fs-16">Total Cost</label>
+                                    </div>
+                                    <div class="overview-number-div">
+                                        <span class="overview-number bold-fw fs-32 brown-clr">$2000</span>
+                                        <label class="overview-number-label fs-16">Project Budget</label>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-sm-6">
+                                <div class="assigned-team-div">
+                                    <div class="assigned-team-header d-flex align-items-center justify-content-between">
+                                        <h4 class="bold-fw">Assigned Team</h4>
+                                        <div class="dropdown common-dropdown-props">
+                                            <button class="dropdown-toggle overview-add-team-btn btn no-after" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-plus mr-2"></i> Add Team
+                                            </button>
+                                            <div class="dropdown-menu stop-propagation shadow">
+                                                <a href="javascript:void(0)" class="dropdown-item">Select All</a>
+                                                <a href="javascript:void(0)" class="dropdown-item"><i class="fas fa-user-plus square-box mr-2"></i> Add new member</a>
+                                                <div class="dropdown-divider"></div>
+                                                <label for="check1" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check1"> <span class="name-span-box">VP</span> Ved Prakash</label>
+                                                <label for="check2" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check2"> <span class="name-span-box">YS</span> Yogesh Sharma</label>
+                                                <label for="check3" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check3"> <span class="name-span-box">PK</span> Pravin Kumar</label>
+                                                <label for="check4" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check4"> <span class="name-span-box">ST</span> Sima Tiwari</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="medium-fw fs-18 pomodoro-primary mb-4">Project Leader</h4>
+                                    <div class="media">
+                                        <div class="mr-3">
+                                            <div class="member-img-div">
+                                                <img src="images/dashboard/avatars/avatar-2.png" class="member-img img-fluid" alt="Image">
+                                                <!-- <span class="member-name-initials">TF</span> -->
+                                            </div>                                            
+                                        </div>                                        
+                                        <div class="media-body">
+                                          <h5 class="mt-0 mb-0 regular-fw fs-18 dark-text-clr">Tom Fidel</h5>
+                                          <p class="mt-1 mb-0 text-clr fs-16">tomfidel123@gmail.com</p>
+                                          <label class="grey-clr-1 fs-14">Project Leader</label>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <h4 class="medium-fw fs-18 pomodoro-primary mb-4">Team</h4>
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-4">
+                                            <div class="media">
+                                                <div class="mr-3">
+                                                    <div class="member-img-div">
+                                                        <img src="images/dashboard/avatars/avatar-3.png" class="member-img img-fluid" alt="Image">
+                                                        <!-- <span class="member-name-initials">IS</span> -->
+                                                    </div>                                            
+                                                </div>  
+                                                <div class="media-body">
+                                                  <h5 class="mt-0 mb-0 regular-fw fs-18 dark-text-clr">Isabella</h5>
+                                                  <label class="grey-clr-1 fs-14">Web Designer</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 mb-4">
+                                            <div class="media">
+                                                <div class="mr-3">
+                                                    <div class="member-img-div">
+                                                        <img src="images/dashboard/avatars/avatar-4.png" class="member-img img-fluid" alt="Image">
+                                                        <!-- <span class="member-name-initials">TF</span> -->
+                                                    </div>                                            
+                                                </div>  
+                                                <div class="media-body">
+                                                  <h5 class="mt-0 mb-0 regular-fw fs-18 dark-text-clr">Kartik Aryan Fidel</h5>
+                                                  <label class="grey-clr-1 fs-14">Web Developer</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 mb-4">
+                                            <div class="media">
+                                                <div class="mr-3">
+                                                    <div class="member-img-div">
+                                                        <img src="images/dashboard/avatars/avatar-5.png" class="member-img img-fluid" alt="Image">
+                                                        <!-- <span class="member-name-initials">TF</span> -->
+                                                    </div>                                            
+                                                </div>  
+                                                <div class="media-body">
+                                                  <h5 class="mt-0 mb-0 regular-fw fs-18 dark-text-clr">Natalia</h5>
+                                                  <label class="grey-clr-1 fs-14">Social Media Manager</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 mb-4">
+                                            <div class="media">
+                                                <div class="mr-3">
+                                                    <div class="member-img-div">
+                                                        <img src="images/dashboard/avatars/avatar-6.png" class="member-img img-fluid" alt="Image">
+                                                        <!-- <span class="member-name-initials">TF</span> -->
+                                                    </div>                                            
+                                                </div>  
+                                                <div class="media-body">
+                                                  <h5 class="mt-0 mb-0 regular-fw fs-18 dark-text-clr">Jog Lucky</h5>
+                                                  <label class="grey-clr-1 fs-14">React Developer</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 mb-4">
+                                            <div class="media">
+                                                <div class="mr-3">
+                                                    <div class="member-img-div">
+                                                        <img src="images/dashboard/avatars/avatar-7.png" class="member-img img-fluid" alt="Image">
+                                                        <!-- <span class="member-name-initials">TF</span> -->
+                                                    </div>                                            
+                                                </div>  
+                                                <div class="media-body">
+                                                  <h5 class="mt-0 mb-0 regular-fw fs-18 dark-text-clr">Chris Fox</h5>
+                                                  <label class="grey-clr-1 fs-14">Content Writer</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="single-project-details">
+                                    <div class="row mb-4">
+                                        <div class="col-sm-6">
+                                            <label class="mb-1 medium-fw grey-clr-1 fs-14">Created:</label>
+                                            <p class="mb-0 text-clr">Feb 15, 2021</p>
+                                        </div>
+                                        <div class="col-sm-6 text-right">
+                                            <label class="mb-1 medium-fw grey-clr-1 fs-14">Deadline:</label>
+                                            <p class="mb-0 text-clr">Aug 31, 2021</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label class="mb-1 medium-fw grey-clr-1 fs-14">Status:</label>
+                                            <p class="mb-0 green-clr-2">Ongoing</p>
+                                        </div>
+                                        <div class="col-sm-6 text-right">
+                                            <label class="mb-1 medium-fw grey-clr-1 fs-14">Priority:</label>
+                                            <p class="mb-0 green-clr-3">Medium Priority</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="project-progress-div">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <label class="mb-1 medium-fw grey-clr-1 fs-14">Progress</label>
+                                            <p class="mb-0 green-clr-1">45%</p>
+                                        </div>
+    
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>                                 
+                                </div>
+
+                                <div class="client-details-div mt-4">
+                                    <div class="assigned-team-header d-flex align-items-center justify-content-between">
+                                        <h4 class="bold-fw">Client</h4>
+                                        <div class="dropdown common-dropdown-props">
+                                            <button class="dropdown-toggle overview-add-team-btn btn no-after" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-plus mr-2"></i> Add Client
+                                            </button>
+                                            <div class="dropdown-menu stop-propagation shadow">
+                                                <a href="javascript:void(0)" class="dropdown-item">Select client</a>
+                                                <a href="javascript:void(0)" class="dropdown-item"><i class="fas fa-user-plus square-box mr-2"></i> Add new client</a>
+                                                <div class="dropdown-divider"></div>
+                                                <label for="check1" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check1"> <span class="name-span-box">OC</span> Olive Carl</label>
+                                                <label for="check2" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check2"> <span class="name-span-box">AT</span> Ammy Tom</label>
+                                                <label for="check3" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check3"> <span class="name-span-box">MD</span> Mike Daniel</label>
+                                                <label for="check4" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check4"> <span class="name-span-box">JS</span> John San</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="mr-3">
+                                            <div class="member-img-div big-img">
+                                                <img src="images/dashboard/avatars/avatar-8.png" class="member-img img-fluid" alt="Image">
+                                                <!-- <span class="member-name-initials">TF</span> -->
+                                            </div>                                            
+                                        </div>  
+                                        <div class="media-body">
+                                            <h5 class="mt-0 mb-0 regular-fw fs-18 dark-text-clr">Folisis Mark</h5>
+                                            <p class="mt-1 mb-0 text-clr fs-16">folissuper123@gmail.com</p>
+                                            <div class="mt-3">
+                                                <button class="btn blue-outline-btn mr-2">See Profile</button>
+                                                <button class="btn green-outline-btn">Message</button>
+                                            </div>
+                                            
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane show active" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
+                    <div class="project-activities-wrapper">
+                        <div class="activity-header d-flex justify-content-between align-items-center mb-4">
+                            <form>
+                                <div class="form-group mb-0 d-flex justify-content-end">
+                                    <input type="text" placeholder="Type to search..." class="form-control table-search-input">
+                                </div>
+                            </form>
+                            <div class="d-flex">
+                                <select class="form-control mr-3 max-width-150">
+                                    <option value="" selected>All Tasks</option>
+                                    <option value="" >To Do</option>
+                                    <option value="">In-Progress</option>
+                                    <option value="">Done</option>
+                                </select>
+                                <select class="form-control max-width-150">
+                                    <option value="">All</option>
+                                    <option value="" selected>Today</option>
+                                    <option value="">This week</option>
+                                    <option value="">This month</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table common-table timesheet-table task-table">
+                                <thead>
+                                    <tr>
+                                        <th>Task</th>
+                                        <th class="text-center">Sub-tasks</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Priority</th>
+                                        <th class="text-center">Team</th>
+                                        <th class="text-right"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="single-task.html" class="logo-clr">TASK08 - Writing Test Cases for QR Codes</a>
+                                            <p class="light-fw grey-clr-1 mb-0 mt-2 task-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sequi tenetur voluptates unde voluptas quae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque obcaecati laboriosam voluptatibus eveniet labore consectetur veniam alias quaerat molestias! Nisi consequuntur aperiam animi autem, consectetur doloremque corrupti, soluta earum, quae dolore ex harum at laboriosam nam est culpa labore iste? Officia nemo beatae consequuntur necessitatibus ad esse nostrum odit in sint fugiat facilis omnis obcaecati</p>
+                                        </td>                                            
+                                        <td class="text-center">3</td>
+                                        <td class="text-center"><span class="in-progress-text">In-Progress</span> </td>
+                                        <td class="text-center">
+                                            <div class="btn-group custom-select-group">
+                                                <label class="mb-0 task-priority-color priority-bg-3 medium no-after" data-toggle="tooltip" data-placement="top" title="Medium"></label>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <img src="images/dashboard/avatars/avatar-7.png" class="img-fluid" alt="Image">
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+                                                <div class="dropdown-menu">
+                                                    <a href="single-task.html" class="nav-link dropdown-item text-clr"><i class="fas fa-pen"></i> Edit</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-check"></i> Mark as Done</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="single-task.html" class="logo-clr">TASK03 - Web development of Contact form</a>
+                                            <p class="light-fw grey-clr-1 mb-0 mt-2 task-para">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae exercitationem esse tempore suscipit quo, dolorem distinctio, temporibus dolores explicabo itaque, veniam aut at rem eaque nisi modi atque. Neque, quia sapiente totam commodi, officia magnam aliquam atque quas qui dolore reprehenderit. Excepturi distinctio iste voluptatibus vel, animi maiores atque ipsa!</p>
+                                        </td>                                            
+                                        <td class="text-center">0</td>
+                                        <td class="text-center"><span class="to-do-text">To Do</span> </td>
+                                        <td class="text-center">
+                                            <div class="btn-group custom-select-group">
+                                                <label class="mb-0 task-priority-color priority-bg-4 high no-after" data-toggle="tooltip" data-placement="top" title="High"></label>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <img src="images/dashboard/avatars/avatar-9.png" class="img-fluid" alt="Image">
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+                                                <div class="dropdown-menu">
+                                                    <a href="single-task.html" class="nav-link dropdown-item text-clr"><i class="fas fa-pen"></i> Edit</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-check"></i> Mark as Done</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="single-task.html" class="logo-clr">TASK05 - React development of Job Listing View</a>
+                                            <p class="light-fw grey-clr-1 mb-0 mt-2 task-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti sint veniam blanditiis.</p>
+                                        </td>                                            
+                                        <td class="text-center">1</td>
+                                        <td class="text-center"><span class="done-text">Done</span> </td>
+                                        <td class="text-center">
+                                            <div class="btn-group custom-select-group">
+                                                <label class="mb-0 task-priority-color priority-bg-5 urgent no-after" data-toggle="tooltip" data-placement="top" title="Urgent"></label>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <img src="images/dashboard/avatars/avatar-10.png" class="img-fluid" alt="Image">
+                                        </td>
+                                         <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+                                                <div class="dropdown-menu">
+                                                    <a href="single-task.html" class="nav-link dropdown-item text-clr"><i class="fas fa-pen"></i> Edit</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-check"></i> Mark as Done</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="single-task.html" class="logo-clr">TASK06 - Creative design for facebook social media post</a>
+                                            <p class="light-fw grey-clr-1 mb-0 mt-2 task-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius aliquam rerum est cum atque sapiente sequi molestias beatae voluptatum?</p>
+                                        </td>                                            
+                                        <td class="text-center">0</td>
+                                        <td class="text-center"><span class="to-do-text">To Do</span> </td>
+                                        <td class="text-center">
+                                            <div class="btn-group custom-select-group">
+                                                <label class="mb-0 task-priority-color priority-bg-1 very-low no-after" data-toggle="tooltip" data-placement="top" title="Very Low"></label>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <img src="images/dashboard/avatars/avatar-11.png" class="img-fluid" alt="Image">
+                                        </td>
+                                         <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+                                                <div class="dropdown-menu">
+                                                    <a href="single-task.html" class="nav-link dropdown-item text-clr"><i class="fas fa-pen"></i> Edit</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-check"></i> Mark as Done</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="single-task.html" class="logo-clr">TASK04 - Content writing for About us page</a>
+                                            <p class="light-fw grey-clr-1 mb-0 mt-2 task-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas asperiores accusamus nostrum adipisci in blanditiis, omnis autem inventore iure eum sapiente ratione, voluptatem sequi expedita sint laboriosam dolore soluta ullam.</p>
+                                        </td>                                            
+                                        <td class="text-center">2</td>
+                                        <td class="text-center"><span class="in-progress-text">In-Progress</span> </td>
+                                        <td class="text-center">
+                                            <div class="btn-group custom-select-group">
+                                                <label class="mb-0 task-priority-color priority-bg-4 high no-after" data-toggle="tooltip" data-placement="top" title="High"></label>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <img src="images/dashboard/avatars/avatar-12.png" class="img-fluid" alt="Image">
+                                        </td>
+                                         <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+                                                <div class="dropdown-menu">
+                                                    <a href="single-task.html" class="nav-link dropdown-item text-clr"><i class="fas fa-pen"></i> Edit</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-check"></i> Mark as Done</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="single-task.html" class="logo-clr">TASK01 - Validating registration form step by step</a>
+                                            <p class="light-fw grey-clr-1 mb-0 mt-2 task-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad voluptates fugiat earum et veritatis, deserunt quo culpa, excepturi cum pariatur, alias itaque molestias facere mollitia.</p>
+                                        </td>                                            
+                                        <td class="text-center">5</td>
+                                        <td class="text-center"><span class="to-do-text">To Do</span> </td>
+                                        <td class="text-center">
+                                            <div class="btn-group custom-select-group">
+                                                <label class="mb-0 task-priority-color priority-bg-2 low no-after" data-toggle="tooltip" data-placement="top" title="Low"></label>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <img src="images/dashboard/avatars/avatar-13.png" class="img-fluid" alt="Image">
+                                        </td>
+                                         <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+                                                <div class="dropdown-menu">
+                                                    <a href="single-task.html" class="nav-link dropdown-item text-clr"><i class="fas fa-pen"></i> Edit</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-check"></i> Mark as Done</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="single-task.html" class="logo-clr">TASK02 - Development of Review page</a>
+                                            <p class="light-fw grey-clr-1 mb-0 mt-2 task-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab saepe ullam illum molestias! Natus molestiae saepe voluptate hic adipisci autem.</p>
+                                        </td>                                            
+                                        <td class="text-center">1</td>
+                                        <td class="text-center"><span class="in-progress-text">In-Progress</span> </td>
+                                        <td class="text-center">
+                                            <div class="btn-group custom-select-group">
+                                                <label class="mb-0 task-priority-color priority-bg-3 medium no-after" data-toggle="tooltip" data-placement="top" title="Medium"></label>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <img src="images/dashboard/avatars/avatar-14.png" class="img-fluid" alt="Image">
+                                        </td>
+                                         <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+                                                <div class="dropdown-menu">
+                                                    <a href="single-task.html" class="nav-link dropdown-item text-clr"><i class="fas fa-pen"></i> Edit</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr"><i class="fas fa-check"></i> Mark as Done</a>
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="timesheet" role="tabpanel" aria-labelledby="timesheet-tab">
+                    <div class="project-activities-wrapper">
+                        <div class="activity-header d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="bold-fw mb-0">Timesheet</h4>
+                            <select class="form-control mr-3 max-width-150">
+                                <option value="">All</option>
+                                <option value="">Today</option>
+                                <option value="" selected>This week</option>
+                                <option value="">This month</option>
+                            </select>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table common-table timesheet-table">
+                                <thead>
+                                    <tr>
+                                        <th>Task</th>
+                                        <th>To</th>
+                                        <th>From</th>
+                                        <th>Duration</th>
+                                        <th>Member</th>
+                                        <th class="text-right"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="border-bottom-none pb-0">
+                                            <div class="timesheet-row">
+                                                <label class="timesheet-day-label mb-0">Today</label><span class="timesheet-duration-span">Total Duration: <span>04:12:47</span></span>
+                                            </div>                                         
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:void(0)" data-target="#taskModal" data-toggle="modal" class="logo-clr">TASK08 - Writing Test Cases for QR Codes</a>
+                                        </td>                                            
+                                        <td>10:00</td>
+                                        <td>10:25</td>
+                                        <td>00:25:17</td>
+                                        <td>
+                                            <img src="images/dashboard/avatars/avatar-7.png" class="img-fluid" alt="Image">
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+    
+                                                <div class="dropdown-menu">
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK03 - Web development of Contact form</a>
+                                        </td>                                            
+                                        <td>10:00</td>
+                                        <td>11:37</td>
+                                        <td>01:37:25</td>
+                                        <td>
+                                            <img src="images/dashboard/avatars/avatar-9.png" class="img-fluid" alt="Image">
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+    
+                                                <div class="dropdown-menu">
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK05 - React development of Job Listing View</a>
+                                        </td>                                            
+                                        <td>10:05</td>
+                                        <td>12:15</td>
+                                        <td>02:10:05</td>
+                                        <td>
+                                            <img src="images/dashboard/avatars/avatar-10.png" class="img-fluid" alt="Image">
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+    
+                                                <div class="dropdown-menu">
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="border-bottom-none pb-0">
+                                            <div class="timesheet-row">
+                                                <label class="timesheet-day-label mb-0">Yesterday</label><span class="timesheet-duration-span">Total Duration: <span>08:45:15</span></span>
+                                            </div>                                         
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK06 - Creative design for facebook social media post</a>
+                                        </td>                                            
+                                        <td>10:03</td>
+                                        <td>11:00</td>
+                                        <td>00:57:00</td>
+                                        <td>
+                                            <img src="images/dashboard/avatars/avatar-11.png" class="img-fluid" alt="Image">
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+    
+                                                <div class="dropdown-menu">
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK04 - Content writing for About us page</a>
+                                        </td>                                            
+                                        <td>12:00</td>
+                                        <td>02:00</td>
+                                        <td>02:00:00</td>
+                                        <td>
+                                            <img src="images/dashboard/avatars/avatar-12.png" class="img-fluid" alt="Image">
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+    
+                                                <div class="dropdown-menu">
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK01 - Validating registration form step by step</a>
+                                        </td>                                            
+                                        <td>01:15</td>
+                                        <td>07:03</td>
+                                        <td>05:48:15</td>
+                                        <td>
+                                            <img src="images/dashboard/avatars/avatar-13.png" class="img-fluid" alt="Image">
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+    
+                                                <div class="dropdown-menu">
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="border-bottom-none pb-0">
+                                            <div class="timesheet-row">
+                                                <label class="timesheet-day-label mb-0">15/07/2021</label><span class="timesheet-duration-span">Total Duration: <span>02:03:10</span></span>
+                                            </div>                                         
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK02 - Development of Review page</a>
+                                        </td>                                            
+                                        <td>10:04</td>
+                                        <td>08:15</td>
+                                        <td>09:11:00</td>
+                                        <td>
+                                            <img src="images/dashboard/avatars/avatar-14.png" class="img-fluid" alt="Image">
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+    
+                                                <div class="dropdown-menu">
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK02 - Social Media Posting Work for Today</a>
+                                        </td>                                            
+                                        <td>03:00</td>
+                                        <td>06:00</td>
+                                        <td>03:00:00</td>
+                                        <td>
+                                            <img src="images/dashboard/avatars/avatar-12.png" class="img-fluid" alt="Image">
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="dropdown table-action-dropdown">
+                                                <i class="fas fa-ellipsis-v dropdown-toggle no-after cursor-pointer" data-toggle="dropdown"></i>
+    
+                                                <div class="dropdown-menu">
+                                                    <a href="javascript:void(0)" class="nav-link dropdown-item text-clr" data-target="#deleteModal" data-toggle="modal"><i class="fas fa-trash-alt"></i> Delete</a>
+                                                </div>
+                                            
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="milestone" role="tabpanel" aria-labelledby="milestone-tab"></div>
+                <div class="tab-pane fade" id="files" role="tabpanel" aria-labelledby="files-tab"></div>
+                <div class="tab-pane fade" id="discussion" role="tabpanel" aria-labelledby="discussion-tab"></div>
+                <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">
+                    <div class="project-activities-wrapper">
+                        <div class="activity-header d-flex justify-content-between align-items-center">
+                            <h4 class="bold-fw mb-0">Recent Activities</h4>
+                            <select class="form-control mr-3 max-width-150">
+                                <option value="">All</option>
+                                <option value="">Today</option>
+                                <option value="" selected>This week</option>
+                                <option value="">This month</option>
+                            </select>
+                        </div>
+
+                        <div class="box-container">
+                            <ul class="step-bar-ul">
+                                <li>
+                                    <span class="first-time">Today</span>
+                                    <div class="step-card">
+                                        <div class="media">
+                                            <div class="mr-3">
+                                                <div class="member-img-div">
+                                                    <img src="images/dashboard/avatars/avatar-2.png" class="member-img img-fluid" alt="Image">
+                                                    <!-- <span class="member-name-initials">IS</span> -->
+                                                </div>                                            
+                                            </div>  
+                                            <div class="media-body">
+                                              <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Tom Fidel</a> added a new task - <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK08 - Writing Test Cases for QR Codes</a></p>
+                                              <div class="d-flex align-items-center flex-wrap">
+                                                <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> 1 hour ago</time>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">See Task</a>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">Message</a>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <!-- <span class="first-time">Today</span> -->
+                                    <div class="step-card">
+                                        <div class="media">
+                                            <div class="mr-3">
+                                                <div class="member-img-div">
+                                                    <img src="images/dashboard/avatars/avatar-4.png" class="member-img img-fluid" alt="Image">
+                                                    <!-- <span class="member-name-initials">IS</span> -->
+                                                </div>                                            
+                                            </div>  
+                                            <div class="media-body">
+                                              <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Kartik Aryan</a> changed the status to Progress on task - <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK03 - Web development of Contact form</a></p>
+                                              <div class="d-flex align-items-center flex-wrap">
+                                                <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> 2 hours ago</time>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">See Task</a>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">Message</a>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <!-- <span class="first-time">Today</span> -->
+                                    <div class="step-card">
+                                        <div class="media">
+                                            <div class="mr-3">
+                                                <div class="member-img-div">
+                                                    <img src="images/dashboard/avatars/avatar-3.png" class="member-img img-fluid" alt="Image">
+                                                    <!-- <span class="member-name-initials">IS</span> -->
+                                                </div>                                            
+                                            </div>  
+                                            <div class="media-body">
+                                              <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Isabella</a> marked Done on task - <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK01 - UI design for Home Page</a></p>
+                                              <div class="d-flex align-items-center flex-wrap">
+                                                <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> 10:30 AM</time>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">See Task</a>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">Message</a>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <ul class="step-bar-ul">
+                                <li>
+                                    <span class="first-time">Yesterday</span>
+                                    <div class="step-card">
+                                        <div class="media">
+                                            <div class="mr-3">
+                                                <div class="member-img-div">
+                                                    <img src="images/dashboard/avatars/avatar-6.png" class="member-img img-fluid" alt="Image">
+                                                    <!-- <span class="member-name-initials">IS</span> -->
+                                                </div>                                            
+                                            </div>  
+                                            <div class="media-body">
+                                              <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Jog Lucky</a> changed the status to Done on task - <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK05 - React development of Job Listing View</a></p>
+                                              <div class="d-flex align-items-center flex-wrap">
+                                                <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> 02:00 PM</time>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">See Task</a>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">Message</a>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <!-- <span class="first-time">Today</span> -->
+                                    <div class="step-card">
+                                        <div class="media">
+                                            <div class="mr-3">
+                                                <div class="member-img-div">
+                                                    <img src="images/dashboard/avatars/avatar-5.png" class="member-img img-fluid" alt="Image">
+                                                    <!-- <span class="member-name-initials">IS</span> -->
+                                                </div>                                            
+                                            </div>  
+                                            <div class="media-body">
+                                              <p class="mb-1"><a href="javascript:void(0)" class="logo-clr">Natalia</a> commented on the task - <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK06 - Creative design for facebook social media post</a></p>
+                                              <div class="d-flex align-items-center flex-wrap">
+                                                <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> 05:17 PM</time>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">See Task</a>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">Message</a>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <ul class="step-bar-ul">
+                                <li>
+                                    <span class="first-time">15/07/2021</span>
+                                    <div class="step-card">
+                                        <div class="media">
+                                            <div class="mr-3">
+                                                <div class="member-img-div">
+                                                    <img src="images/dashboard/avatars/avatar-7.png" class="member-img img-fluid" alt="Image">
+                                                    <!-- <span class="member-name-initials">IS</span> -->
+                                                </div>                                            
+                                            </div>  
+                                            <div class="media-body">
+                                              <p class="mb-1"><a href="javascript:void(0)" class="logo-clr" >Chris Fox</a> added an attachment on task - <a href="javascript:void(0)" class="logo-clr" data-target="#taskModal" data-toggle="modal">TASK04 - Content for About us page</a></p>
+                                              <div class="d-flex align-items-center flex-wrap">
+                                                <time class="fs-14 grey-clr-1"><i class="fas fa-clock"></i> 12:45 PM</time>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">See Task</a>
+                                                <span class="dot-circle"></span>
+                                                <a href="javascript:void(0)" class="blue-clr fs-14">Message</a>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="mt-5 pl-4">
+                                <button class="btn show-activity-btn">Show More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <div class="modal common-modal" id="taskModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <div class="task-modal-header">
+                    <h5 class="fs-24 bold-fw">Development of blog pages</h5>
+                    <div class="task-detailing-box d-flex align-items-center">
+                        <label class="mb-0 fs-14">Task 10</label>
+                        <i class="fas fa-circle small-dot"></i>
+                        <label class="mb-0 fs-14 blue-clr cursor-pointer" id="addSubTaskBtn"><i class="fas fa-tasks mr-2"></i>Add Sub-Task</label>
+                        <i class="fas fa-circle small-dot"></i>
+                        <a href="javascript:void()" class="fs-14 blue-clr"><i class="fas fa-link mr-2"></i>Task Link</a>
+                        <i class="fas fa-circle small-dot"></i>
+                        <div class="btn-group dropdown custom-select-group">
+                            <label class="mb-0 cursor-pointer task-priority-color priority-bg-3 medium dropdown-toggle no-after" data-toggle="dropdown"></label>
+                            <div class="dropdown-menu stop-propagation shadow min-width-250">
+                                <p class="text-clr fs-18 pt-3 pl-4 mb-3">Priority Types</p>   
+                                <ul class="nav flex-column my-2 priority-type-ul">
+                                    <li>
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-1">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span class="text-clr">Very Low</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-2">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span class="text-clr">Low</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-3">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span>Medium</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-4">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span>High</span>
+                                        </label>
+
+                                        <label class="priority-div">
+                                            <input type="radio" name="priority" id="p1" hidden>
+                                            <span class="priority-span-clr priority-bg-5">
+                                                <i class="fas fa-check priority-check"></i>
+                                            </span>
+                                            <span>Urgent</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+            </div>
+            <div class="modal-body pt-0">
+                <div class="task-desc-div">
+                    <label class="modal-task-label grey-clr-1 fs-14">Description</label>
+                    <p class="task-desc-para">This task includes Main Blog Page, Single Blog Page, Search Blog, Blog Categories, Email Subscription for Blog, Recent Blogs </p>
+                </div>
+
+                <div class="sub-tasks-div">
+                    <div class="task-add-div d-none">
+                        <div class="group form-group mr-3"> 
+                            <input type="text" class="form-control" id="taskName" name="taskName" required> 
+                            <span class="highlight"></span>
+                            <span class="bar"></span> 
+                            <label for="taskName">What is to be done?</label>
+                        </div>
+                        <button class="btn task-add-plus-btn mr-2"><i class="fas fa-plus"></i></button>
+                        <button class="btn task-add-cancel-btn"><img src="images/cross-icon-red.svg" class="img-fluid" alt="Cross Icon"></button>
+                    </div>
+
+                    <label class="modal-task-label grey-clr-1 fs-14">Sub-tasks</label>
+                    <ul class="sub-tasks-ul">
+                        <li>
+                            <p class="">Addding new features in the blog</p>
+                        </li>
+                        <li>
+                            <p class="">Providing social media links to the single blog</p>
+                        </li>
+                        <li>
+                            <p class="">Adding email newsletter field for the users</p>
+                        </li>
+                    </ul>
+
+                        
+                    </div>
+
+                    <div class="task-team-div">
+                        <label class="modal-task-label grey-clr-1 fs-14">Team</label>
+                        <ul class="nav">
+                            <li class="nav-item mr-2">
+                                <div class="member-img-div">
+                                    <img src="images/dashboard/avatars/avatar-3.png" class="member-img img-fluid" alt="Image">
+                                </div>
+                            </li>
+                            <li class="nav-item mr-2">
+                                <div class="dropdown custom-select-group">
+                                    <label class="dropdown-toggle task-add-label no-after cursor-pointer" data-toggle="dropdown"><i class="fas fa-plus"></i></label>
+                                    <div class="dropdown-menu stop-propagation shadow w-auto">
+                                        <a href="javascript:void(0)" class="dropdown-item">Select All</a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="fas fa-user-plus square-box mr-2"></i> Add new member</a>
+                                        <div class="dropdown-divider"></div>
+                                        <label for="check1-1" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check1-1"> <span class="name-span-box">VP</span> Ved Prakash</label>
+                                        <label for="check2-1" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check2-1"> <span class="name-span-box">YS</span> Yogesh Sharma</label>
+                                        <label for="check3-1" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check3-1"> <span class="name-span-box">PK</span> Pravin Kumar</label>
+                                        <label for="check4-1" class="dropdown-item cursor-pointer mb-0 styled-label" href="#"><input type="checkbox" class="mr-2" id="check4-1"> <span class="name-span-box">ST</span> Sima Tiwari</label>
+                                      </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-body-inner more-padding">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="common-drop-area" id="dropArea1">
+                                    <input type="file" id="fileInput1" multiple hidden>
+                                    <p class="drag-para">Drag your files to attach or <label class="mb-0">click to browse</label></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <table id="imgTable1" width="100%" class="upload-img-table">                        
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-btn-group">
+                            <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                            <button class="btn task-add-btn medium-fw fs-mob-16">Update changes</button>
+                        </div>                  
+                    </form>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <div class="modal common-modal" id="addTaskModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="fs-24 bold-fw">Add Task</h5>
+                <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body-inner more-padding">
+                    <form onsubmit="return false;">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="group form-group mr-3"> 
+                                    <input type="text" class="form-control" id="taskName" name="taskName" required> 
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span> 
+                                    <!-- <b><small style="color:red; font-weight: 500;" id="alert_first_name"> --- Error message will show here --- </small></b>  -->
+                                    <label for="taskName">Task Name</label>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="group text-group form-group mb-3">
+                                    <textarea id="groupDescription" required="" spellcheck="false"></textarea>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label for="groupDescription">Task Description</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <div class="form-group p-relative mr-3"> 
+                                    <div class="btn-group w-100 custom-select-group">
+                                        <div class="dropdown-toggle w-100 custom-dropdown-toggle" data-toggle="dropdown">Set task priority</div>
+                                        <div class="dropdown-menu stop-propagation shadow">
+                                            <p class="text-clr fs-18 pt-3 pl-4 mb-3">Priority Types</p>   
+                                            <ul class="nav flex-column my-2 priority-type-ul">
+                                                <li>
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-1">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span class="text-clr">Very Low</span>
+                                                    </label>
+
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-2">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span class="text-clr">Low</span>
+                                                    </label>
+
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-3">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span>Medium</span>
+                                                    </label>
+
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-4">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span>High</span>
+                                                    </label>
+
+                                                    <label class="priority-div">
+                                                        <input type="radio" name="priority" id="p1" hidden>
+                                                        <span class="priority-span-clr priority-bg-5">
+                                                            <i class="fas fa-check priority-check"></i>
+                                                        </span>
+                                                        <span>Urgent</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <span class="highlight"></span> 
+                                    <span class="bar"></span>
+                                    <label for="memberPhone" class="select-label">Priority Type</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group p-relative ml-3"> 
+                                    <div class="btn-group w-100 custom-select-group show">
+                                        <div class="dropdown-toggle w-100 custom-dropdown-toggle" data-toggle="dropdown">
+                                        Select your team
+                                        </div>
+                                        <div class="dropdown-menu stop-propagation shadow">
+                                            <a href="javascript:void(0)" class="dropdown-item">Select All</a>
+                                            <a href="javascript:void(0)" class="dropdown-item"><i class="fas fa-user-plus square-box mr-2"></i> Add new member</a>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="dropdown-item cursor-pointer mb-0">
+                                                <input type="checkbox" class="mr-2 styled-checkbox" id="check100">
+                                                <label for="check100">
+                                                    <span class="name-span-box styled-label">VP</span> Ved Prakash
+                                                </label>
+                                            </div>
+                                            <div  class="dropdown-item cursor-pointer mb-0 styled-label" href="#">
+                                                <input type="checkbox" class="mr-2 styled-checkbox" id="check102"> 
+                                                <label for="check102">
+                                                    <span class="name-span-box">YS</span> Yogesh Sharma
+                                                </label>
+                                            </div>
+                                            <div  class="dropdown-item cursor-pointer mb-0 styled-label" href="#">
+                                                <input type="checkbox" class="mr-2 styled-checkbox" id="check103"> 
+                                                <label for="check103">
+                                                    <span class="name-span-box">PK</span> Pravin Kumar
+                                                </label>
+                                            </div>
+                                            <div class="dropdown-item cursor-pointer mb-0 styled-label" href="#">
+                                                <input type="checkbox" class="mr-2 styled-checkbox" id="check104">
+                                                <label for="check104">
+                                                    <span class="name-span-box">ST</span> Sima Tiwari
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="highlight"></span> 
+                                    <span class="bar"></span>
+                                    <label for="memberPhone" class="select-label">Team Members</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <div class="group form-group mr-3 pt-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="inc-dec-input">
+                                            <div class="input-group">
+                                            <span class="input-group-btn border-right d-flex">
+                                                <button type="button" class="quantity-left-minus btn btn-number"  data-type="minus" data-field="">
+                                                <i class="fas fa-minus"></i>
+                                                </button>
+                                            </span>
+                                            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="8" min="0" max="100">
+                                            <span class="input-group-btn border-left d-flex">
+                                                <button type="button" class="quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                                                <i class="fas fa-plus"></i>
+                                                </button>
+                                            </span>
+                                            </div>
+                                        </div>
+                                        <span class="mb-0 text-clr ml-2">hours</span>
+                                    </div>
+                                    <span class="highlight"></span> 
+                                    <span class="bar"></span> 
+                                    <label for="selectRole" class="select-label">Estimated Time (In hours)</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                            
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="common-drop-area" id="dropArea">
+                                    <input type="file" id="fileInput" multiple hidden>
+                                    <p class="drag-para">Drag your files to attach or <label class="mb-0">click to browse</label></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <table id="imgTable" width="100%" class="upload-img-table">                        
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    
+                        <div class="text-center">
+                            <a href="javascript:void(0)" class="btn reset-all-link">Reset All</a>
+                        </div>
+
+                        <div class="modal-btn-group">
+                            <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                            <button class="btn task-add-btn medium-fw fs-mob-16"> + Add</button>
+                        </div>                  
+                    </form>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>  
+
+    <div class="modal delete-modal" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="fs-24 bold-fw">Delete Task</h5>
+                    <button type="button" class="close" data-dismiss="modal"><img src="images/cross-icon.svg" class="img-fluid" alt="Cross Icon"></button>
+                </div>
+    
+                <div class="modal-body">
+                    <div class="modal-body-inner">
+                        <h3 class="fs-28 medium-fw lh-1-5">Are you sure you want to delete this task?</h3>
+                        <div class="modal-btn-group mt-4">
+                            <button class="btn modal-cancel-btn medium-fw fs-mob-16" data-dismiss="modal">Cancel</button>
+                            <a href="javascript:void(0)" id="add_task" class="btn task-add-btn medium-fw fs-mob-16"><i class="fas fa-minus mr-2"></i> Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        let sidebarToggler = document.getElementById("sidebarToggler");
+        let sidebar = document.querySelector(".dashboard-sidebar");
+
+        sidebarToggler.addEventListener("click", () => {
+            sidebar.classList.toggle("toggled");
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $(function(){
+            $(".stop-propagation").on('click', (e) => {
+                e.stopPropagation();
+            });
+
+            /* JS for Increment Decrement */
+            var quantitiy=0;
+                $('.quantity-right-plus').click(function(e){
+                    // Stop acting like a button
+                    e.preventDefault();
+                    // Get the field name
+                    var quantity = parseInt($('#quantity').val());
+                    // If is not undefined
+                        $('#quantity').val(quantity + 1);
+                        console.log(quantity);
+                });
+
+                $('.quantity-left-minus').click(function(e){
+                    // Stop acting like a button
+                    e.preventDefault();
+                    // Get the field name
+                    var quantity = parseInt($('#quantity').val());
+                    // If is not undefined
+                    if(quantity>0){
+                        $('#quantity').val(quantity - 1);
+                    }
+                }); 
+            });
+
+        function deleteRow(btn){
+            let row = btn.closest("tr");
+            row.remove();
+        }
+
+        /* File JS */
+        let fileInput = document.getElementById("fileInput");
+		let dropArea = document.getElementById("dropArea");
+		let table = document.getElementById("imgTable");
+
+		dropArea.addEventListener("click", () => {
+			fileInput.click();
+		});		
+
+		fileInput.addEventListener("change", () => {
+			let files = fileInput.files;
+
+			readallfiles(files);
+
+			function readallfiles(files) {
+				var reader = new FileReader();  
+				function readFile(index) {
+					if( index >= files.length ) return;
+					var file = files[index];
+					reader.onload = function(e) {
+					// Take the File Content
+					var fileUrl = e.target.result;
+					readFile(index+1);
+
+                    console.log(files);
+					
+					// let allowedExtensions = ["image/*", "application/*"];
+						// if(allowedExtensions.includes(file.type)){
+							let tr = `<tr><td><img id="foo" src="${fileUrl}" class="img" alt=""></td><td>${file.name}</td><td><button class="btn actionBtn" onclick="deleteRow(this);"><i class="fa fa-times"></i></button></td></tr>`;
+							table.querySelector("tbody").innerHTML += tr;
+						// }
+					}
+					reader.readAsDataURL(file);
+				}
+				readFile(0);
+			}
+			
+		})
+
+		dropArea.addEventListener("dragover", (e) => {
+			e.preventDefault();
+			dropArea.classList.add("plain-border");
+		});
+
+		dropArea.addEventListener("dragleave", (e) => {
+			e.preventDefault();
+			dropArea.classList.remove("plain-border");
+		});
+
+		dropArea.addEventListener("drop", (e) => {
+			e.preventDefault();
+            fileInput.click();
+			dropArea.classList.remove("plain-border");
+
+			var files = e.dataTransfer.files;
+
+			readallfiles(files);
+
+			function readallfiles(files) {
+				var reader = new FileReader();
+				function readFile(index) {
+					if( index >= files.length ) return;
+					var file = files[index];
+					reader.onload = function(e) {
+					var fileUrl = e.target.result;
+					readFile(index+1);
+					
+					// let allowedExtensions = ["image/*", "application/*"];
+						// if(allowedExtensions.includes(file.type)){
+							let tr = `<tr><td><img id="foo" src="${fileUrl}" class="img" alt=""></td><td>${file.name}</td><td><button class="btn actionBtn" onclick="deleteRow(this);"><i class="fa fa-times"></i></button></td></tr>`;
+							table.querySelector("tbody").innerHTML += tr;
+						// }
+					}
+					reader.readAsDataURL(file);
+				}
+				readFile(0);
+			}				
+		});
+
+
+
+
+
+         /* File JS */
+         let fileInput1 = document.getElementById("fileInput1");
+		let dropArea1 = document.getElementById("dropArea1");
+		let table1 = document.getElementById("imgTable1");
+
+		dropArea1.addEventListener("click", () => {
+			fileInput1.click();
+		});		
+
+		fileInput1.addEventListener("change", () => {
+			let files = fileInput1.files;
+
+			readallfiles(files);
+
+			function readallfiles(files) {
+				var reader = new FileReader();  
+				function readFile(index) {
+					if( index >= files.length ) return;
+					var file = files[index];
+					reader.onload = function(e) {
+					// Take the File Content
+					var fileUrl = e.target.result;
+					readFile(index+1);
+
+                    console.log(files);
+					
+					// let allowedExtensions = ["image/*", "application/*"];
+						// if(allowedExtensions.includes(file.type)){
+							let tr = `<tr><td><img id="foo" src="${fileUrl}" class="img" alt=""></td><td>${file.name}</td><td><button class="btn actionBtn" onclick="deleteRow(this);"><i class="fa fa-times"></i></button></td></tr>`;
+							table1.querySelector("tbody").innerHTML += tr;
+						// }
+					}
+					reader.readAsDataURL(file);
+				}
+				readFile(0);
+			}
+			
+		})
+
+		dropArea1.addEventListener("dragover", (e) => {
+			e.preventDefault();
+			dropArea1.classList.add("plain-border");
+		});
+
+		dropArea1.addEventListener("dragleave", (e) => {
+			e.preventDefault();
+			dropArea1.classList.remove("plain-border");
+		});
+
+		dropArea1.addEventListener("drop", (e) => {
+			e.preventDefault();
+			dropArea1.classList.remove("plain-border");
+
+			var files = e.dataTransfer.files;
+
+			readallfiles(files);
+
+			function readallfiles(files) {
+				var reader = new FileReader();
+				function readFile(index) {
+					if( index >= files.length ) return;
+					var file = files[index];
+					reader.onload = function(e) {
+					var fileUrl = e.target.result;
+					readFile(index+1);
+					
+					// let allowedExtensions = ["image/*", "application/*"];
+						// if(allowedExtensions.includes(file.type)){
+							let tr = `<tr><td><img id="foo" src="${fileUrl}" class="img" alt=""></td><td>${file.name}</td><td><button class="btn actionBtn" onclick="deleteRow(this);"><i class="fa fa-times"></i></button></td></tr>`;
+							table1.querySelector("tbody").innerHTML += tr;
+						// }
+					}
+					reader.readAsDataURL(file);
+				}
+				readFile(0);
+			}				
+		});
+    </script>
+
+    <script>
+        let addSubTaskBtn = document.querySelector("#addSubTaskBtn");
+
+        let taskAddDiv = document.querySelector('.task-add-div');
+
+        function emptyInput(){
+            taskAddDiv.querySelector("input").value = "";
+            taskAddDiv.querySelector("input").focus();
+        }
+
+        addSubTaskBtn.addEventListener("click", () => {
+            taskAddDiv.classList.remove("d-none");
+            taskAddDiv.querySelector('input').focus();
+        });
+        
+        let taskAddBtns = document.querySelectorAll(".task-add-plus-btn");
+        let taskAddCancelBtns = document.querySelectorAll(".task-add-cancel-btn");
+
+        let subTaskUl = document.querySelector(".sub-tasks-ul");
+
+        taskAddBtns.forEach( (item) => {
+            item.addEventListener("click", () => {
+                let parentdiv = item.closest(".task-add-div");
+                let inpValue = parentdiv.querySelector("input").value;
+                if(inpValue){
+                    subTaskUl.innerHTML += `<li><p>${inpValue}</p></li>`;
+                    emptyInput();
+                }
+                
+            })
+        })
+
+
+        taskAddCancelBtns.forEach( (item) => {
+            item.addEventListener("click", () => {
+                let parentdiv = item.closest(".task-add-div");
+                parentdiv.classList.add("d-none");
+            })
+        });
+    </script>
+</body>
+</html>

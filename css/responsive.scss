@@ -1,0 +1,257 @@
+@media screen and (min-width: 1920px){
+    section{
+        width: 1920px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .fs-mob-14{
+        font-size: 0.925rem !important;
+    }
+    .fs-mob-16{
+        font-size: 1rem !important;
+    }
+    .fs-mob-18{
+        font-size: 1.25rem !important;
+    }
+    .fs-mob-24{
+        font-size: 1.5rem !important;
+    }
+
+    .pomopro-authentication-area{
+        flex-direction: column;
+        overflow: auto;
+
+        .authentication-form-div{
+            flex: 1 1 100%;
+
+            .form-wrapper{
+                left: 50%;
+                top: 50px;
+                width: calc(100% - 1rem);
+                transform: translateX(-50%);
+            }
+        }
+        .authentication-img-div{
+            flex: 1 1 100%;
+            min-height: 100vh;
+        }
+    }
+
+    .form-wrapper{
+        .form-inner-wrapper{
+            padding: 2rem;
+        }
+    }
+    .authenticate-para{
+        max-width: 100%;
+    }
+    .blue-btn, .google-btn{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .thank-your-registration-section{
+        .thank-you-box{
+            width: calc(100% - 1rem);
+
+            .thank-you-box-inner{
+                padding: 2rem;
+            }
+        }
+    }
+
+    .top-navbar{
+        padding: 1rem 0;
+
+        .navbar-login-btn{
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .navbar-collapse {
+            padding-top: 0.5rem;
+            text-align: center;
+
+            .navbar-nav{   
+                .nav-link{
+                    margin-right: 0;
+                    padding: 1rem;
+                }
+            }
+
+        }
+    }
+
+    .timer-div {
+        padding: 2rem 1rem 3rem;
+
+
+        .three-labels{
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.8);
+
+            label{
+                white-space: nowrap;
+            }
+        }
+
+        .timer-btn-group{
+            align-items: center;
+
+            .timer-btn{
+                margin-bottom: 2rem;
+                padding: 8px 4px 8px 45px;
+                font-size: 2.5rem;
+                border-radius: 20px;
+
+                span{
+                    margin-left: 2rem;
+                }
+            }
+
+            .restart-btn{
+                padding: 15px 20px;
+                border-radius: 20px;
+                margin-left: 0;
+            }
+        }
+        
+        .timer-text-wrapper{
+            .timer-text{
+                h1{
+                    font-size: 7.5rem;
+                    line-height: 1;
+        
+                    span {
+                        font-size: 7.5rem;
+                        line-height: 1;
+                    }
+        
+                }
+            }
+
+        }
+    }
+    .my-single-task{
+        padding: 0.8rem;
+
+        .custom-checkbox{
+            margin-right: 0;
+
+            .custom-control-label{
+                font-size: 1rem;
+                margin-right: 1rem;
+                padding-left: 0.8rem;
+            }
+        }  
+        .pomodoro-count-label{
+            padding: 0.5rem 0.6rem;
+            margin-right: 0;
+            font-size: 0.8rem;
+        }
+
+    } 
+    .add-task-modal{
+
+        .modal-body-inner{
+            padding: 0;
+        }
+
+    } 
+    .modal-cancel-btn{
+        margin-right: 0.5rem;
+    }
+    .add-task-btn {
+        padding: 0.7rem 1.8rem;
+    }
+    .settings-inner{
+        padding: 2rem 0;
+    }
+    .settings-div{
+        .settings-heading-div{
+            padding-left: 0;
+        }
+    }
+    .select-with-volume{
+        flex-direction: column;
+
+        .select{
+            margin: 0 1rem;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+
+        .volume-range-div{
+            margin-top: 1rem;
+            flex-direction: column;
+        }
+    }
+}
+
+@media screen and (max-width: 320px){
+    .form-wrapper{
+        .form-inner-wrapper {
+            padding: 2rem 1rem;
+        }
+
+    }
+    .thank-your-registration-section{
+        .thank-you-box{
+
+            .thank-you-box-inner{
+                padding: 2rem 1rem;
+            }
+        }
+    }
+
+    .timer-div {
+        padding: 2rem 1rem 3rem;
+
+        .timer-btn-group{
+            .timer-btn{
+                margin-bottom: 2rem;
+                padding: 8px 4px 8px 45px;
+                font-size: 2rem;
+                border-radius: 20px;
+
+                span{
+                    padding: 12px 20px;
+                }            }
+
+            .restart-btn{
+                padding: 20px 25px;
+            }
+        }
+        .timer-text-wrapper{
+            .timer-text h1{
+                font-size: 4.5rem;
+                line-height: 1;
+                span {
+                    font-size: 5.5rem;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+    .my-single-task{
+
+        .custom-checkbox{
+
+            .custom-control-label{
+                font-size: 0.8rem;
+            }
+        }  
+
+    }
+    .login-modal{
+        .modal-body-inner{
+            padding: 0;
+        }
+
+    } 
+    
+}
+

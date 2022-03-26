@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon-64x64.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard-responsive.css">
+    <title>Pomopro - Dashboard</title>
+</head>
+<body>
+    <nav class="navbar dashboard-navbar">
+        <div class="d-flex align-items-center ml-0 ml-md-3">
+            <span id="sidebarToggler">
+                <img src="images/dashboard/hamburger.svg" class="mr-3 cursor-pointer" alt="Hamburger" width="35" height="35">
+            </span>
+            <a class="navbar-brand" href="dashboard.html">
+                <img src="images/logo-1.svg" width="151" height="38" class="img-fluid d-none d-md-block" alt="Pomopro Logo">
+                <img src="images/logo-icon-1.svg" width="35" height="35" class="img-fluid d-block d-md-none" alt="Pomopro Logo">
+            </a>
+        </div>
+          <ul class="nav ml-auto my-2 my-lg-0 dashboard-top-ul align-items-center">
+            <li class="nav-item active">
+              <span class="nav-link top-time-text"><i class="fas fa-clock mr-2"></i> <span id="navbarTimer">00:00:00</span></span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link icon-link" href="#"><i class="fas fa-bell"></i></a>
+            </li>
+            <li class="nav-item dropdown user-dropdown">
+              <a class="nav-link dropdown-toggle no-after mr-0 mr-md-3" href="#" id="topUserDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                <div class="top-user-img-div">
+                    <img src="images/dashboard/avatars/avatar-1.png" class="img-fluid top-user-img" alt="User Image">
+                </div>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="topUserDropdown">
+                <span class="dropdown-item-text medium-fw nowrap">Hi, John Pascal</span>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i> Setting</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt mr-2"></i> Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+      </nav>
+
+      <section class="dashboard-body">
+          <aside class="dashboard-sidebar">
+            <ul class="nav flex-column">
+                <li class="nav-item active">
+                    <a href="dashboard.html" class="nav-link">
+                        <img src="images/dashboard/dashboard.svg" class="aside-icon" width="25" height="25" alt="Dashboard Icon"> 
+                        <span class="text-uppercase dashboard-nav-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="team.html" class="nav-link">
+                        <img src="images/dashboard/team.svg" class="aside-icon" width="25" height="25" alt="Team Icon"> 
+                        <span class="text-uppercase dashboard-nav-text">Team</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">
+                        <img src="images/dashboard/projects.svg" class="aside-icon" width="25" height="25" alt="Project Icon"> 
+                        <span class="text-uppercase dashboard-nav-text">Projects</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link">
+                        <img src="images/dashboard/clients.svg" class="aside-icon" width="25" height="25" alt="Client Icon"> 
+                        <span class="text-uppercase dashboard-nav-text">Client</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link">
+                        <img src="images/dashboard/dashboard.svg" class="aside-icon" width="25" height="25" alt="Setting Icon"> 
+                        <span class="text-uppercase dashboard-nav-text">Setting</span>
+                    </a>
+                </li>
+            </ul>
+          </aside>
+          <div class="dashboard-inner-wrapper">
+            <div class="dashboard-inner">
+                <div class="dashboard-timer-box">
+                    <input type="text" class="form-control" placeholder="What task are you working on?">
+
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="dropdown timer-project-dropdown">
+                            <button class="btn dropdown-toggle text-clr fs-22 p-0" type="button" id="projectDropdownToggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Project
+                            </button>
+                            <div class="dropdown-menu shadow" aria-labelledby="projectDropdownToggle">
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Np</span> No Project</a>
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Ce</span> Cedibet</a>
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Li</span> Love is the Answer</a>
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Ep</span> EPixel</a>
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Zy</span> Zypsa</a>
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Yo</span> Yoonik</a>
+                                <a class="dropdown-item" href="#"><span class="company-short-name">Zo</span> Zoonisk</a>
+                            </div>
+                        </div>
+                      
+
+                      <div class="dashboard-timer-numbers fs-24 text-clr" id='projectTimer'>00:00:00</div>
+                      <div>
+                          <button class="btn dashboard-timer-start-btn fs-24 text-uppercase" id="startTimerBtn">Start</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </section>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        let sidebarToggler = document.getElementById("sidebarToggler");
+        let sidebar = document.querySelector(".dashboard-sidebar");
+
+        sidebarToggler.addEventListener("click", () => {
+            sidebar.classList.toggle("toggled");
+        })
+    </script>
+
+    <script>
+        let startTimerBtn =  document.getElementById("startTimerBtn");
+
+        var num = 0;  
+        var intervalId;
+
+        startTimerBtn.addEventListener('click', () => {
+            startTimerBtn.classList.toggle("started");
+            if(startTimerBtn.classList.contains("started")){
+                startTimerBtn.innerHTML = 'STOP';
+                intervalId = setInterval(timing, 1000);
+            }else{
+                startTimerBtn.innerHTML = 'START';
+                clearInterval(intervalId);
+            }
+        });
+
+        function timing(){
+            num++;
+            sec = num % 60;
+            min = (Math.floor(num / 60 )) % 60;
+            hr = Math.floor(num / 3600);
+            document.getElementById("navbarTimer").innerHTML = `${hr < 10 ? `0${hr}` : hr}:${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}`;  
+            document.getElementById("projectTimer").innerHTML = `${hr < 10 ? `0${hr}` : hr}:${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}`;  
+        }
+    </script>
+</body>
+</html>

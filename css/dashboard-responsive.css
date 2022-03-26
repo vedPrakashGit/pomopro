@@ -1,0 +1,68 @@
+@media screen and (max-width: 767px) {
+  .dashboard-timer-box {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+  }
+  .dashboard-timer-box .form-control {
+    margin-bottom: 1.5rem;
+  }
+  .dashboard-timer-box .timer-project-dropdown {
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+  .dashboard-timer-box .timer-project-dropdown .dropdown-toggle {
+    font-size: 1.25rem;
+  }
+  .dashboard-timer-box .dashboard-timer-numbers {
+    padding-right: 1rem;
+    font-size: 1.125rem;
+  }
+  .dashboard-timer-box .dashboard-timer-start-btn {
+    font-size: 1rem;
+    padding: 0.4rem 1.75rem;
+  }
+
+  .dashboard-sidebar {
+    position: absolute;
+    left: -200px;
+    z-index: 999999;
+  }
+  .dashboard-sidebar.toggled {
+    left: 0;
+    width: auto;
+    transition: all 0.3s ease;
+  }
+  .dashboard-sidebar.toggled a.nav-link .dashboard-nav-text {
+    visibility: visible;
+    position: static;
+    background-color: transparent;
+    padding: 0;
+    margin-left: 1rem;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 999999;
+  }
+  .dashboard-sidebar.toggled a.nav-link:hover .dashboard-nav-text {
+    visibility: visible;
+  }
+  .dashboard-sidebar .aside-icon {
+    margin-left: 0;
+  }
+
+  .common-table thead th {
+    padding: 0.75rem;
+  }
+  .common-table td {
+    padding: 0.75rem;
+  }
+
+  .overview-number-wrapper {
+    flex-direction: column;
+  }
+  .overview-number-wrapper .overview-number-div {
+    margin-bottom: 1rem;
+  }
+  .overview-number-wrapper .overview-number-div:last-child {
+    margin-bottom: 0;
+  }
+}/*# sourceMappingURL=dashboard-responsive.css.map */
